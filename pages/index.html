@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>TASK-2</title>
+
+</head>
+<body>
+    <div class="container-fluid page">
+    <div class="container-fluid " >
+        <div class="header">
+            <div class="row">
+                <div class="col-lg-2 logo">
+                    <img src="../assets/saketa-logo.svg" alt="" width="195px" height="95px">
+                </div>
+                <div class="col-lg-7 left">
+
+                    <p class="blue large">Employee Directory</p>
+                    <p class="med">The ultimate people Directory Experience</p>
+                </div>
+                <div class="col-lg-3 right">
+                    <p>  <br> <span class="blue">welcome ,</span>  Andrew Philps</p>
+                    <img src="../assets/profile.jpg" alt="" width="70px" height="70px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="line"></div>
+     <div class="container-fluid part2">
+        <div class="row body">
+            <div class="col-lg-2 filter">
+               <ul>
+                <li><h4>Departments</h4></li>
+                <li> IT</li>
+                <li>Human resource</li>
+                <li>MD</li>
+                <li>sales</li>
+               </ul>
+               <br>
+               <ul>
+                <li><h4>Offices </h4></li>
+                <li>Seattle</li>
+                <li>India</li>
+               </ul>
+               <br>
+               <ul>
+                <li><h4>Job Titles</h4></li>
+                <li>SharePoint Practice head</li>
+                <li>.Net development Lead</li>
+                <li>Recruiting Expert</li>
+                <li>BI Developer</li>
+                <li>Business Analyst</li>
+                <li><a href="" onclick="visible();">View more</a></li>
+                <div class="listhidden">
+                    <li>Software Developer</li>
+                    <li>Executive Assistant</li>
+                    <li>HR manager</li>
+                    <li>Quality engineer</li>
+                </div>
+               </ul>
+            </div>
+            <div class="col-lg-10 search">
+                  <div class="row row1">
+                    <button type="button" class="btn  alp"> <span class="glyphicon glyphicon-user"></span></button>
+                    <button type="button" class="btn  alp"> A</button>
+                    <button type="button"  class="btn  alp"> B</button>
+                    <button type="button"  class="btn  alp"> C</button>
+                    <button type="button"  class="btn  alp"> D</button>
+                    <button type="button"  class="btn  alp"> E</button>
+                    <button type="button"  class="btn  alp"> F</button>
+                    <button type="button"  class="btn  alp"> G</button>
+                    <button type="button"  class="btn  alp"> H</button>
+                    <button type="button"  class="btn  alp"> I</button>
+                    <button type="button"  class="btn  alp"> J</button>
+                    <button type="button"  class="btn  alp"> K</button>
+                    <button type="button"  class="btn  alp"> L</button>
+                    <button type="button"  class="btn  alp"> M</button>
+                    <button type="button"  class="btn  alp"> N</button>
+                    <button type="button"  class="btn  alp"> O</button>
+                    <button type="button"  class="btn  alp"> P</button>
+                    <button type="button"  class="btn  alp"> Q</button>
+                    <button type="button"  class="btn  alp"> R</button>
+                    <button type="button"  class="btn  alp"> S</button>
+                    <button type="button"  class="btn  alp"> T</button>
+                    <button type="button"  class="btn  alp"> U</button>
+                    <button type="button"  class="btn  alp"> V</button>
+                    <button type="button"  class="btn  alp"> W</button>
+                    <button type="button"  class="btn  alp"> X</button>
+                    <button type="button"  class="btn  alp"> Y</button>
+                    <button type="button"  class="btn  alp"> Z</button>
+
+                  </div>
+                  <div class="row row2">
+                         <div class="col-lg-5">
+                            <label for="search">Search</label>
+                            <input type="search" name="" id="search" placeholder=" &emsp;&emsp; Enter Any Keyword" class="searchbtn">
+                            <span class="glyphicon glyphicon-search " id="iconsearch"></span>
+                            <button type="button" class="btn btn-success clear">Clear</button>
+                         </div>
+                         <div class="col-lg-5">
+                          <label for="namefilter">Filter by</label>
+                          <input type="button" name="" id="namefilter" placeholder=" &emsp; Preferred Name " value="  Preferred Name" class="filterbtn">
+                          <span class="glyphicon glyphicon-triangle-bottom" id="icontri"></span>
+
+                         </div>
+                         <div class="col-lg-1">
+                            <button type="button" class="btn addemp">Add employee</button>
+
+                         </div>
+                  </div>
+                  <br>
+                  <div class="row results_box">
+                    <div class="emp">
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+     </div>
+    </div>
+    <script type="text/javascript" src="../scripts/script.js"></script>
+</body>
+</html>
