@@ -9,10 +9,10 @@ const myArray = [
       "Office":"India",
       "department":"IT Department",
       "PhoneNumber":"9562562567",
-       "SkypeId":" "
+       "SkypeId":"+91+9562562567"
     },
     { "image":"../assets/emp2.jpg",
-        "firstName":"Helen ",
+        "firstName":"Helen",
         "lastName":"Zimmerman ",
         "PreferredName" : "Helen Zimmerman",
         "email":"helenzimmerma@gmail.com ",
@@ -20,7 +20,7 @@ const myArray = [
         "Office":"India",
         "department":"IT Department",
         "PhoneNumber":"9362565567",
-         "SkypeId":" "
+         "SkypeId":"+91+9362565567"
       }
       ,
           {
@@ -33,7 +33,7 @@ const myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"8925555236",
-             "SkypeId":" "
+             "SkypeId":"+91+8925555236"
           },
           {
             "image":"../assets/emp4.jpg",
@@ -45,7 +45,7 @@ const myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9632587415",
-             "SkypeId":" "
+             "SkypeId":"+91+9632587415"
           }
           ,
           {
@@ -58,7 +58,7 @@ const myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9517536842",
-             "SkypeId":" "
+             "SkypeId":"+91+9517536842"
           }
           ,
           {
@@ -71,7 +71,7 @@ const myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9637415820",
-             "SkypeId":" "
+             "SkypeId":"+91+9637415820"
           }
           ,
           {
@@ -84,7 +84,7 @@ const myArray = [
             "Office":"India",
             "department":"IT Department",
             "PhoneNumber":"9637415820",
-             "SkypeId":" "
+             "SkypeId":"+91+9637415820"
           }
           ,
           {
@@ -97,17 +97,43 @@ const myArray = [
             "Office":"Seattle",
             "department":"UX department",
             "PhoneNumber":"9637419520",
-             "SkypeId":" "
+             "SkypeId":"+91+9637419520"
           }
 
 
 ];
-
+//-----------------------------------------------------------------ADDING NEW EMPLOYEE--------------------------------------------------------
 function added()
-{
+{   var profile="../assets/emp7.jpg";
     var fname=document.getElementById("input_fname").value;
-    console.log(fname);
+    var lname=document.getElementById("input_lname").value;
+    var pname=document.getElementById("input_pname").value;
+    var email=document.getElementById("input_email").value;
+    var job=document.getElementById("input_job_title").value;
+    var deptval=document.getElementById("input_department").value;
+    var number=document.getElementById("input_number").value;
+    var skype=document.getElementById("input_skype").value;
+    var loc=document.getElementsByName("location").value;
+    console.log(profile);
+   myArray.push({
+            "image":profile,
+            "firstName":fname,
+            "lastName":lname,
+            "PreferredName" : pname,
+            "email":email,
+            "jobTitle":job,
+            "Office":deptval,
+            "department":deptval,
+            "PhoneNumber":number,
+             "SkypeId":skype,
+             "Office":loc
+   });
+   employees();
+console.log(myArray.length);
+console.log(myArray);
 }
+
+// ---------------------------------------------DISPLAYING DATA INTO HTML PAGE----------------------------------------------------------------
 var output="";
 for(let i=0;i<myArray.length;i++)
 {
@@ -120,17 +146,18 @@ for(let i=0;i<myArray.length;i++)
     <p class="jobtitle">${myArray[i].jobTitle}</p>
     <p class="dept">${myArray[i].department}</p>
     <div class="links">
-    <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-    <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-    <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-    <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-    <span class="	glyphicon glyphicon-heart glyicon" ></span>
+    <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
 </div>
 </div>
     </div>`);
     console.log(output);
    document.getElementsByClassName("results_box")[0].innerHTML=output;
 }
+// ----------------------------------------------FILTERS FOR COUNT------------------------------------------------------------------
 function filterIt(){
     console.log("IT filter");
     var count=0;
@@ -197,7 +224,7 @@ function filterIndia(){
     document.getElementById("india").innerHTML= "India"+"("+ count+ ")";
 
 }
-function filtersharePoint(){
+function filterSharePoint(){
     console.log("filter sharepoint");
     var count=0;
     for(let i=0;i<myArray.length;i++){
@@ -205,7 +232,7 @@ function filtersharePoint(){
             count=count+1;
         }
     }
-    document.getElementById("sharepoint").innerHTML= "SharePoint practice head"+"("+ count+ ")";
+    document.getElementById("sharepoint").innerHTML="SharePoint practice head"+"("+ count+ ")";
 
 }
 function filterDotNet(){
@@ -259,11 +286,12 @@ filterMd();
 filterUx();
 filterSeattle();
 filterIndia();
-filtersharePoint();
+filterSharePoint();
 filterDotNet();
 filterRecruit();
 filterBi();
 filterBa();
+
 function alpEmp(){
     employees();
 }
@@ -271,6 +299,7 @@ function clearEmp(){
     employees();
 
 }
+// ------------------------------------------DEPARTMENT FILTER FOR EMPLOYEE DATA------------------------------------------------------
 function dept(Dept){
     var result="";
     for(let i=0;i<myArray.length;i++){
@@ -285,11 +314,11 @@ function dept(Dept){
         <p class="jobtitle">${myArray[i].jobTitle}</p>
         <p class="dept">${myArray[i].department}</p>
         <div class="links">
-        <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-        <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-        <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-        <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-        <span class="	glyphicon glyphicon-heart glyicon" ></span>
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
     </div>
     </div>
         </div>
@@ -300,11 +329,7 @@ function dept(Dept){
     console.log(result);
     document.getElementsByClassName("results_box")[0].innerHTML=result;
 }
-
-function noRes()
-{
-    document.getElementsByClassName("results_box")[0].innerHTML="<h1>"+"no results found"+"</h1>";
-}
+// ------------------------------------------office FILTER FOR EMPLOYEE DATA------------------------------------------------------
 function offices(place){
     var result="";
     for(let i=0;i<myArray.length;i++){
@@ -319,11 +344,11 @@ function offices(place){
         <p class="jobtitle">${myArray[i].jobTitle}</p>
         <p class="dept">${myArray[i].department}</p>
         <div class="links">
-        <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-        <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-        <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-        <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-        <span class="	glyphicon glyphicon-heart glyicon" ></span>
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+        <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+        <i class="bi bi-chat-fill pe-2 icons"></i>
+        <i class="bi bi-star-fill pe-2 icons"></i>
+        <i class="bi bi-heart-fill icons"></i>
     </div>
     </div>
         </div>
@@ -333,7 +358,7 @@ function offices(place){
       }
     }
 }
-
+//------------------------------------------JOB TITLE FILTER FOR EMPLOYEE DATA------------------------------------------------------
 function jobTitle(job){
     var result="";
     for(let i=0;i<myArray.length;i++){
@@ -347,11 +372,11 @@ function jobTitle(job){
         <p class="jobtitle">${myArray[i].jobTitle}</p>
         <p class="dept">${myArray[i].department}</p>
         <div class="links">
-        <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-        <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-        <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-        <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-        <span class="	glyphicon glyphicon-heart glyicon" ></span>
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
     </div>
     </div>
         </div>
@@ -362,38 +387,89 @@ function jobTitle(job){
 console.log(result);
   document.getElementsByClassName("results_box")[0].innerHTML=result;
    }
-
-function alphabet(letter)
-{
-    var result="";
-    for(let i=0;i<myArray.length;i++)
-    {
-         if(myArray[i].firstName.charAt(0)==letter)
+  // ------------------------------------------ALPHABETICAL SEARCH FOR EMPLOYEE DATA------------------------------------------------------
+   function alphabet(letter)
+   {
+       var result="";
+       for(let i=0;i<myArray.length;i++)
+       { 
+           if(((document.getElementById("slct_option").value)=="FirstName"))
          {
-            result=result.concat(`
-            <div class="emp">
-            <img src="${myArray[i].image}" alt="img" class="profilepic">
-            <div class="card_content">
-            <h3 class="prefname">${myArray[i].PreferredName}</h3>
-            <p class="jobtitle">${myArray[i].jobTitle}</p>
-            <p class="dept">${myArray[i].department}</p>
-            <div class="links">
-            <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-            <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-            <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-            <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-            <span class="	glyphicon glyphicon-heart glyicon" ></span>
-        </div>
-        </div>
-            </div>
-            `);
-
+            if(myArray[i].firstName.charAt(0)==letter)
+            {
+               result=result.concat(`
+               <div class="emp">
+               <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+               <div class="card_content">
+               <h3 class="prefname">${myArray[i].PreferredName}</h3>
+               <p class="jobtitle">${myArray[i].jobTitle}</p>
+               <p class="dept">${myArray[i].department}</p>
+               <div class="links">
+               <i class="bi bi-telephone-fill pe-2 icons"></i>
+               <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+               <i class="bi bi-chat-fill pe-2 icons"></i>
+               <i class="bi bi-star-fill pe-2 icons"></i>
+               <i class="bi bi-heart-fill icons"></i>
+           </div>
+           </div>
+               </div>
+               `);
+           
+            }
          }
-    }
-    filterIt();
-    console.log(result);
-    document.getElementsByClassName("results_box")[0].innerHTML=result;
-}
+         else if(((document.getElementById("slct_option").value)=="LastName")) 
+         {
+           if(myArray[i].lastName.charAt(0)==letter)
+           {
+              result=result.concat(`
+              <div class="emp">
+              <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+              <div class="card_content">
+              <h3 class="prefname">${myArray[i].PreferredName}</h3>
+              <p class="jobtitle">${myArray[i].jobTitle}</p>
+              <p class="dept">${myArray[i].department}</p>
+              <div class="links">
+              <i class="bi bi-telephone-fill pe-2 icons"></i>
+              <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+              <i class="bi bi-chat-fill pe-2 icons"></i>
+              <i class="bi bi-star-fill pe-2 icons"></i>
+              <i class="bi bi-heart-fill icons"></i>
+          </div>
+          </div>
+              </div>
+              `);
+          
+           }
+         }
+         else{
+           if(myArray[i].firstName.charAt(0)==letter)
+           {
+              result=result.concat(`
+              <div class="emp">
+              <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+              <div class="card_content">
+              <h3 class="prefname">${myArray[i].PreferredName}</h3>
+              <p class="jobtitle">${myArray[i].jobTitle}</p>
+              <p class="dept">${myArray[i].department}</p>
+              <div class="links">
+              <i class="bi bi-telephone-fill pe-2 icons"></i>
+              <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+              <i class="bi bi-chat-fill pe-2 icons"></i>
+              <i class="bi bi-star-fill pe-2 icons"></i>
+              <i class="bi bi-heart-fill icons"></i>
+          </div>
+          </div>
+              </div>
+              `);
+          
+           }
+         }
+   
+      }
+       console.log(result);
+       document.getElementsByClassName("results_box")[0].innerHTML=result;
+   }
+  // ------------------------------------------EMPLOYEE LIST FUNCTION-----------------------------------------------------
 function employees()
 {
     var output="";
@@ -408,11 +484,11 @@ function employees()
         <p class="jobtitle">${myArray[i].jobTitle}</p>
         <p class="dept">${myArray[i].department}</p>
         <div class="links">
-        <span class="glyphicon glyphicon-earphone glyicon" ></span> &nbsp;
-        <span class="	glyphicon glyphicon-envelope glyicon " ></span>&nbsp;
-        <span class="	glyphicon glyphicon-send glyicon " ></span>&nbsp;
-        <span class="glyphicon glyphicon-star glyicon" ></span>&nbsp;
-        <span class="	glyphicon glyphicon-heart glyicon" ></span>
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
     </div>
     </div>
         </div>`);
@@ -420,3 +496,90 @@ function employees()
        document.getElementsByClassName("results_box")[0].innerHTML=output;
     }
 }
+//------------------------------------------SEARCHING  FOR EMPLOYEE ------------------------------------------------------
+const search=document.getElementById('search');
+search.addEventListener('keyup',(e)=>{
+    console.log(e.target.value);
+    var res=e.target.value;
+    var result="";
+    for(let i=0;i<myArray.length;i++){
+        if(((document.getElementById("slct_option").value)=="FirstName"))
+        {
+            var name=myArray[i].firstName.toLowerCase();
+            if((name.includes(res)))
+      {
+        result=result.concat(`
+        <div class="emp">
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
+        <div class="card_content">
+        <h3 class="prefname">${myArray[i].PreferredName}</h3>
+        <p class="jobtitle">${myArray[i].jobTitle}</p>
+        <p class="dept">${myArray[i].department}</p>
+        <div class="links">
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
+    </div>
+    </div>
+        </div>
+        `);
+
+    }
+        }
+       else if(((document.getElementById("slct_option").value)=="LastName"))
+        {
+            var name=myArray[i].lastName.toLowerCase();
+            if((name.includes(res)))
+      {
+        result=result.concat(`
+        <div class="emp">
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
+        <div class="card_content">
+        <h3 class="prefname">${myArray[i].PreferredName}</h3>
+        <p class="jobtitle">${myArray[i].jobTitle}</p>
+        <p class="dept">${myArray[i].department}</p>
+        <div class="links">
+        <i class="bi bi-telephone-fill pe-2 icons"></i>
+    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+    <i class="bi bi-chat-fill pe-2 icons"></i>
+    <i class="bi bi-star-fill pe-2 icons"></i>
+    <i class="bi bi-heart-fill icons"></i>
+    </div>
+    </div>
+        </div>
+        `);
+
+    }
+        }
+        else{
+            var name=myArray[i].PreferredName.toLowerCase();
+            // if((myArray[i].PreferredName==res)||(myArray[i].firstName==res))
+            if(name.includes(res))
+            {
+              result=result.concat(`
+              <div class="emp">
+              <img src="${myArray[i].image}" alt="img" class="profilepic">
+              <div class="card_content">
+              <h3 class="prefname">${myArray[i].PreferredName}</h3>
+              <p class="jobtitle">${myArray[i].jobTitle}</p>
+              <p class="dept">${myArray[i].department}</p>
+              <div class="links">
+              <i class="bi bi-telephone-fill pe-2 icons"></i>
+          <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+          <i class="bi bi-chat-fill pe-2 icons"></i>
+          <i class="bi bi-star-fill pe-2 icons"></i>
+          <i class="bi bi-heart-fill icons"></i>
+          </div>
+          </div>
+              </div>
+              `);
+
+          }
+        }
+}
+console.log(result);
+  document.getElementsByClassName("results_box")[0].innerHTML=result;
+}
+)

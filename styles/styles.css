@@ -46,9 +46,14 @@ li a{
     color: rgb(62, 204, 255);
 }
 .alp{
-    width:40px;
+    width:37px;
+    margin-right: 2px;
     color:white;
   background-color:rgb(62, 204, 255);
+}
+.size{
+    font-size: 14px;
+    font-weight: 500;
 }
 .addemp{
     color:white;
@@ -62,10 +67,11 @@ li a{
     visibility: hidden;
 }
 .part2{
-    margin: 0px;
-    margin-right: 200px;
+    margin: -10px;
 }
-
+.filter{
+    margin-top: 30px;
+}
 .row2 .searchbtn{
     width: 40%;
     height: 35px;
@@ -93,13 +99,13 @@ li a{
     top:10px;
 }
 .results_box{
-    height: 400px;
+    height: 520px;
     border: 3px solid silver;
     margin: 20px;
     margin-top: 20px;
     display: grid;
     grid-template-rows: 170px;
-    grid-template-columns: 290px 290px 290px 290px;
+    grid-template-columns: 265px 265px 265px 265px;
 
 }
  .emp{
@@ -107,14 +113,14 @@ li a{
     margin-top: 10px;
     padding: 10px;
     background-color: rgb(234, 232, 232);
-    width: 280px;
+    width: 255px;
     height: 150px;
  }
  .profilepic{
-    width: 100px;
-    height: 110px;
+    width: 80px;
+    height: 100px;
     float: left;
-    padding-top: 12px;
+    padding-top: 15px;
     padding-right: 20px;
  }
  .filter_dept{
@@ -125,25 +131,32 @@ li a{
 
  }
  .emp h3{
+    padding-top: 15px;
     padding-left: 10px;
-font-size: 15px;
-font-weight: 600;
+    padding-bottom: 5px;
+font-size: 16px;
+font-weight: 700;
+line-height: 17px;
  }
+
  .emp p{
     padding-left: 10px;
-font-size: 13px;
+font-size: 14px;
+line-height: 10px;
 color: rgb(38, 35, 35);
  }
  .links{
+    line-height: 10px;
     padding-left: 10px;
  }
- .glyicon{
-    color: rgb(45, 44, 44);
+ .icons{
 
+    color: rgb(110, 119, 119);
+    font-size: 15px;
  }
  .slct{
-    width: 180px;
-    height: 35px;
+    width: 190px;
+    height: 40px;
  }
 .add{
     background-color: blue;

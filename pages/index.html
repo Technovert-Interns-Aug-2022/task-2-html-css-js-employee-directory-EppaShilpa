@@ -1,202 +1,202 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow-x: hidden;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>TASK-2</title>
 </head>
-<body >
+<body>
     <div class="container-fluid page">
-    <div class="container-fluid " >
-        <div class="header">
-            <div class="row">
-                <div class="col-lg-2 logo">
-                    <img src="../assets/saketa-logo.svg" alt="" width="195px" height="95px">
-                </div>
-                <div class="col-lg-7 left">
+        <div class="container-fluid " >
+            <div class="header">
+                <div class="row">
+                    <div class="col-lg-2 logo">
+                        <img src="../assets/saketa-logo.svg" alt="" width="195px" height="95px">
+                    </div>
+                    <div class="col-lg-7 left">
 
-                    <p class="blue large">Employee Directory</p>
-                    <p class="med">The ultimate people Directory Experience</p>
-                </div>
-                <div class="col-lg-3 right">
-                    <p>  <br> <span class="blue">welcome ,</span>  Andrew Philps</p>
-                    <img src="../assets/profile.jpg" alt="" width="70px" height="70px">
+                        <p class="blue large">Employee Directory</p>
+                        <p class="med">The ultimate people Directory Experience</p>
+                    </div>
+                    <div class="col-lg-3 right">
+                        <p>  <br> <span class="blue">welcome ,</span>  Andrew Philps</p>
+                        <img src="../assets/profile.jpg" alt="" width="70px" height="70px">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="line"></div>
-     <div class="container-fluid part2">
-        <div class="row body">
-            <div class="col-lg-2 filter">
-               <ul>
-                <li><h4>Departments</h4></li>
-                <li> <a href="#" class="filter_dept" id="it" onclick="dept('IT Department')" >IT</a></li>
-                <li> <a href="#" class="filter_dept " id="hr"onclick="dept('Human resource')">Human resource</a> </li>
-                <li><a href="#" class="filter_dept" id="md" onclick="dept('MD')">MD</a></li>
-                <li><a href="#" class="filter_dept" id="uxdept" onclick="dept('UX department')">UX department</a></li>
-               </ul>
-               <br>
-               <ul>
-                <li><h4>Offices </h4></li>
-                <li><a href="#" class="filter_dept" id="seattle" onclick="offices('Seattle')" >Seattle</a></li>
-                <li><a href="#" class="filter_dept" id="india" onclick="offices('India')" >India</a></li>
-               </ul>
-               <br>
-               <ul>
-                <li><h4>Job Titles</h4></li>
-                <li><a href="#" class="filter_dept" id="sharepoint" onclick="jobTitle('SharePoint practice head')">SharePoint Practice head</a></li>
-                <li><a href="#" class="filter_dept" id="dotnet" onclick="jobTitle('.Net developement')">.Net development LeadIT</a></li>
-                <li><a href="#" class="filter_dept" id="recruit" onclick="jobTitle('Recruiting Expert')">Recruiting Expert</a></li>
-                <li><a href="#" class="filter_dept" id="bi" onclick="jobTitle('BI Developer')">BI Developer</a></li>
-                <li><a href="#" class="filter_dept" id="business" onclick="jobTitle('Business Analyst')">Business Analyst</a></li>
-                <li><a href="" onclick="visible()">View more</a></li>
-                <div class="listhidden">
-                    <li>Software Developer</li>
-                    <li>Executive Assistant</li>
-                    <li>HR manager</li>
-                    <li>Quality engineer</li>
-                </div>
-               </ul>
-            </div>
-            <div class="col-lg-10 search">
-                  <div class="row row1">
-                    <button type="button" class="btn  alp" onclick="alpEmp()"> <span class="glyphicon glyphicon-user"></span></button>
-                    <button type="button" class="btn  alp" onclick="alphabet('A')"> A</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('B')"> B</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('C')"> C</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('D')"> D</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('E')"> E</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('F')"> F</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('G')"> G</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('H')"> H</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('I')"> I</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('J')"> J</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('K')"> K</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('L')"> L</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('M')"> M</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('N')"> N</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('O')"> O</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('P')"> P</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('Q')"> Q</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('R')"> R</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('S')"> S</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('T')"> T</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('U')"> U</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('V')"> V</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('W')"> W</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('X')"> X</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('Y')"> Y</button>
-                    <button type="button"  class="btn  alp" onclick="alphabet('Z')"> Z</button>
-                  </div>
-                  <div class="row row2">
-                         <div class="col-lg-5">
-                            <label for="search">Search</label>
-                            <input type="search" name="" id="search" placeholder=" &emsp;&emsp; Enter Any Keyword" class="searchbtn">
-                            <span class="glyphicon glyphicon-search " id="iconsearch"></span>
-                            <button type="button" class="btn btn-success clear" onclick="clearEmp()">Clear</button>
+        <div id="line"></div>
+        <div class="container-fluid part2">
+            <div class="row body">
+                <div class="col-lg-2 filter">
+                    <ul>
+                     <li><h4>Departments</h4></li>
+                     <li> <a href="#"  class="text-decoration-none link-dark size" class="filter_dept" id="it" onclick="dept('IT Department')" >IT</a></li>
+                     <li> <a href="#"  class="text-decoration-none link-dark size" class="filter_dept " id="hr"onclick="dept('Human resource')">Human resource</a> </li>
+                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="md" onclick="dept('MD')">MD</a></li>
+                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="uxdept" onclick="dept('UX department')">UX department</a></li>
+                    </ul>
+                    <br>
+                    <ul>
+                     <li><h4>Offices </h4></li>
+                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="seattle" onclick="offices('Seattle')" >Seattle</a></li>
+                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="india" onclick="offices('India')" >India</a></li>
+                    </ul>
+                    <br>
+                    <ul>
+                     <li><h4>Job Titles</h4></li>
+                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_dept" id="sharepoint" onclick="jobTitle('SharePoint practice head')">SharePoint Practice head</a></li>
+                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_dept" id="dotnet" onclick="jobTitle('.Net developement')">.Net development LeadIT</a></li>
+                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_dept" id="recruit" onclick="jobTitle('Recruiting Expert')">Recruiting Expert</a></li>
+                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="bi" onclick="jobTitle('BI Developer')">BI Developer</a></li>
+                     <li><a href="#"class="text-decoration-none link-dark size"  class="filter_dept" id="business" onclick="jobTitle('Business Analyst')">Business Analyst</a></li>
+                     <li><a href="" onclick="visible()">View more</a></li>
+                     <div class="listhidden">
+                         <li>Software Developer</li>
+                         <li>Executive Assistant</li>
+                         <li>HR manager</li>
+                         <li>Quality engineer</li>
+                     </div>
+                    </ul>
+                 </div>
+                 <div class="col-lg-10 search">
+                    <div class="row row1">
+                        <div class="row row1">
+                            <button type="button" class="btn  alp" onclick="alpEmp()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                              </svg></button>
+                            <button type="button" class="btn  alp" onclick="alphabet('A')"> A</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('B')"> B</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('C')"> C</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('D')"> D</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('E')"> E</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('F')"> F</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('G')"> G</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('H')"> H</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('I')"> I</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('J')"> J</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('K')"> K</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('L')"> L</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('M')"> M</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('N')"> N</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('O')"> O</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('P')"> P</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('Q')"> Q</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('R')"> R</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('S')"> S</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('T')"> T</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('U')"> U</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('V')"> V</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('W')"> W</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('X')"> X</button>
+                            <button type="button"  class="btn  alp" onclick="alphabet('Y')"> Y</button>
+                           <button type="button"  class="btn  alp" onclick="alphabet('Z')"> Z</button>
+                    </div>
+                    <div class="row row2">
+                        <div class="col-lg-5">
+
+                            <label for="search"><b>Search</b></label>
+
+                            <input type="text" class="col-sm-7 col-form-label" name="" id="search" placeholder=" &emsp;&emsp; Enter Any Keyword" >
+                            &emsp;
+                            <button type="button" class="btn btn-success " onclick="clearEmp()">Clear</button>
                          </div>
                          <div class="col-lg-5">
-                          <label for="namefilter">Filter by</label>                        
-                          <select class="slct" id="slct_option">
-                            <option selected>Preferred Name</option>
-                            <option value="1">FirstName</option>
-                            <option value="2">LastName</option>
-                            <option value="3">jobTitle</option>
-                            <option value="4">Office</option>
-                          </select>
-                         </div>
-                         <div class="col-lg-1">      
-                             <div class="container ">
-                                <button type="button"  class="btn addemp" data-toggle="modal" data-target="#myModal" >Add Employee</button>
-                                <div class="modal fade" id="myModal" role="dialog">
-                                  <div class="modal-dialog modal-sm">
-                                    <div class="modal-content ">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Employee Details</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                        <form>
-                                            <div >
-                                                <label class="form-label"><b>First Name</b></label>
-                                                <input type="text" class="form-control" id="input_fname">
-                                            </div>
-                                            <div >
-                                                <label class="form-label"><b>Last Name</b></label>
-                                                <input type="text" class="form-control" id="input_lname">
-                                            </div>
-                                            <div >
-                                                <label class="form-label"><b>Preffered Name</b></label>
-                                                <input type="text" class="form-control" id="input_pname">
-                                            </div>
-                                            <div >
-                                                <label class="form-label"><b>Email address</b></label>
-                                                <input type="email" class="form-control" id="input_email">
-                                            </div>
-                                            <div >
-                                                <label class="form-label"><b>Job Title</b></label>
-                                                <input type="text" class="form-control" id="input_job_title">
-                                            </div>
-                                            <div>
+                            <label for="namefilter"><b>Filter by</b></label>
+                            <select class="slct" id="slct_option">
+                              <option  value="PreferredName" selected>Preferred Name</option>
+                              <option value="FirstName">FirstName</option>
+                              <option value="LastName">LastName</option>
 
-                                            </div>
-                                            <div >
-                                                <label class="form-label"><b>Department</b></label> <br>
-                                                <select class="form-select sel" id="input_department">
-                                                    <option selected>MD</option>
-                                                    <option value="IT Department">IT Department</option>
-                                                    <option value="HR Department">HR Department</option>
-                                                    <option value="UX Department">UX Department</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label class="form-label"><b>Phone Number</b></label>
-                                                <input type="tel" class="form-control" id="input_number">
-                                            </div>
-                                            <div>
-                                                <label class="form-label"><b>Skype</b></label>
-                                                <input type="email" class="form-control" id="input_skype">
-                                            </div>
+                            </select>
+                           </div>
+                           <div class="col-lg-2">
+                                <button type="button" id="add_employee" class="btn btn-info" data-bs-toggle="modal"
+                                data-bs-target="#EmplyeeModal" >Add
+                                Employee</button>
+                            <div class="modal fade" id="EmplyeeModal"  aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Enter Employee
+                                                Details</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form name="employe"enctype="multipart/form-data" action="/upload" class="was-validated" method="post" onsubmit="return validateForm();">
+                                                <div >
+                                                    <label class="form-label"><b>First Name</b></label>
+                                                    <input type="text" class="form-control " id="input_fname" name="fn" required>
+                                                </div>
+                                                <div >
+                                                    <label class="form-label"><b>Last Name</b></label>
+                                                    <input type="text" class="form-control" id="input_lname" name="ln" required>
+                                                </div>
+                                                <div >
+                                                    <label class="form-label"><b>Preffered Name</b></label>
+                                                    <input type="text" class="form-control" id="input_pname" name="pn" required>
+                                                </div>
+                                                <div >
+                                                    <label class="form-label"><b>Email address</b></label>
+                                                    <input type="email" class="form-control" id="input_email" name="mail" required>
+                                                </div>
+                                                <div >
+                                                    <label class="form-label"><b>Job Title</b></label>
+                                                    <input type="text" class="form-control" id="input_job_title" name="tit" required>
+                                                </div>
 
-                                            <br>
-                                            <div >
-                                                <label class="form-label"><b>Office Location: &nbsp;</b></label>
-                                                <input type="radio" id="india" name="location" value="India">
-                                                <label >India</label>
-                                                <input type="radio" id="Seattle" name="location" value="Seattle">
-                                                <label >Seattle</label>
-                                            </div>
-                                            <div>
-                                                <label for="image">UPLOAD IMAGE</label>
-                                                <input type="file" name="upload" id="image">
-                                            </div>
-                                        </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-success " onclick="added()" data-dismiss="modal">ADD EMPLOYEE</button>
-                                      </div>
+                                                <div >
+                                                    <label class="form-label"><b>Department</b></label>
+                                                    <select class="form-select" id="input_department" name="dep" required>
+                                                        <option selected>Select</option>
+                                                        <option value="IT Department">IT Department</option>
+                                                        <option value="HR Department">HR Department</option>
+                                                        <option value="UX Department">UX Department</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label"><b>Phone Number</b></label>
+                                                    <input type="tel" class="form-control" id="input_number" name="contact"   required>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label"><b>Skype</b></label>
+                                                    <input type="email" class="form-control" id="input_skype" name="skype" required>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label"><b>Office Location: &nbsp;</b></label>
+                                                    <input type="radio" id="india" name="location" value="India" required>
+                                                    <label >India</label>
+                                                    <input type="radio" id="Seattle" name="location" value="Seattle" required>
+                                                    <label >Seattle</label>
+                                                </div>
+                                                <div>
+                                                    <label for="image"><b>UPLOAD IMAGE</b></label> <br>
+                                                    <input type="file" name="upload" id="image" required>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success " data-bs-dismiss="modal" id="emp_button" onclick="added()">Add employee</button>
+                                        </div>
                                     </div>
-                                  </div>
                                 </div>
-                              </div>
-                         </div>
-                  </div>
-                  <br>
-                  <div class="results_box">
-                   <div class="emp">      
-                   </div>
-                  </div>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="results_box">
+                        <div class="emp">
+
+                        </div>
+                       </div>
+                 </div>
             </div>
         </div>
-     </div>
     </div>
     <script type="text/javascript" src="../scripts/script.js"></script>
 </body>
