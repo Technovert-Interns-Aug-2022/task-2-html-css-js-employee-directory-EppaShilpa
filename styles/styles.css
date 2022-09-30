@@ -64,10 +64,11 @@ li a{
  border-bottom: 2px solid rgb(170, 160, 160);
 }
 .listhidden{
-    visibility: hidden;
+    display: none;
 }
 .part2{
     margin: -10px;
+    /* margin-right: 200px; */
 }
 .filter{
     margin-top: 30px;
@@ -106,7 +107,7 @@ li a{
     display: grid;
     grid-template-rows: 170px;
     grid-template-columns: 265px 265px 265px 265px;
-
+  
 }
  .emp{
     margin: 5px;
@@ -120,7 +121,7 @@ li a{
     width: 80px;
     height: 100px;
     float: left;
-    padding-top: 15px;
+    padding-top: 15px; 
     padding-right: 20px;
  }
  .filter_dept{
@@ -128,7 +129,7 @@ li a{
  }
  .card_content{
   padding-top: 0px;
-
+  
  }
  .emp h3{
     padding-top: 15px;
@@ -150,7 +151,7 @@ color: rgb(38, 35, 35);
     padding-left: 10px;
  }
  .icons{
-
+   
     color: rgb(110, 119, 119);
     font-size: 15px;
  }
@@ -164,4 +165,89 @@ color: rgb(38, 35, 35);
 .sel{
     width: 270px;
     height: 30px;
+ }
+ #bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+ }
+ .modal-contents{
+width: 500px;
+height: 400px;
+background-color: white;
+border-radius: 5px;
+
+padding: 20px;
+position: relative;
+ }
+ #close{
+    position: absolute;
+    top:0;
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+ }
+ #pp{
+ margin-left: 190px;
+width: 100px;
+height: 100px;
+ }
+ .card_contents{
+    padding-top: 80px;
+    padding-left: 80px;
+
+ }
+ #edit{
+    text-align: center;
+    margin-left: 120px;
+   
+ }
+ .card_contents span{
+    color: rgb(62, 204, 255);
+
+ }
+ #Prename{
+    padding-left: 20px;
+ }
+ #fnerror{
+    color: red;
+ }
+ #lnerror{
+    color: red;
+ }
+ #pnerror{
+    color: red;
+ }
+ #mailerror{
+    color: red;
+ }
+ #jterror{
+    color: red;
+ }
+ #deperror{
+    color: red;
+ }
+ #phnerror{
+    color: red;
+ }
+ #skyperror{
+    color: red;
+ }
+ #offcerror{
+    color: red;
+ }
+ .card_contents td{
+    font-size: 17px;
+    font-weight: 500;
+ }
+ #update{
+    text-align: center;
+    margin-left: 120px;
  }
