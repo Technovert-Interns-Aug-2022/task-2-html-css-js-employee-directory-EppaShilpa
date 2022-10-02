@@ -144,12 +144,18 @@ function added()
              "SkypeId":skype,
              "Office":loc
    });
-   refreshPage();
-   clear_form_data();
-   return true;
+//    document.getElementById('emp_button').addEventListener('click',function(){
+//     $('#myModal').modal('hide');
+    
+// })
+refreshPage();
+clear_form_data();
+//   document.getElementById('EmplyeeModal').style.display='none';
+   
+   $('#EmplyeeModal').modal('hide');
 }
 else{
-  
+    $('EmplyeeModal').modal('show');
     // clear_form_data();
 return false;
 }
@@ -172,8 +178,10 @@ function clear_form_data()
     document.getElementById('input_department').style.border="1px solid black";
     document.getElementById('input_number').style.border="1px solid black";
     document.getElementById('input_skype').style.border="1px solid black";
-    document.getElementById('mailerror').innerHTML="";   
+    document.getElementById('mailerror').innerHTML="";
+    
 }
+
 //-----------------------------------------FORM VALIDATION------------------------------------------------------------------
 function validateForm()
 {
@@ -204,12 +212,14 @@ function validateForm()
         }
         else{
             document.getElementById('input_lname').style.border="3px solid green";
+            document.getElementById('input_pname').style.border="3px solid green";
             if(regx.test(mail)){
                 document.getElementById('input_email').style.border="3px solid green";
+                document.getElementById('mailerror').innerHTML="";
                 if(jtitle=='SharePoint practice head'||jtitle=='Operations manager'||jtitle=='Product manager'||jtitle=='.Net developement'||jtitle=='Network Engineer'||jtitle=='Business Analyst'||jtitle=='Software Engineer'||jtitle=='Software Developer')
                 {
                     document.getElementById('input_job_title').style.border="3px solid green";
-                    if(dep=='IT Department'||dep=='HR Department'||dep=='UX Department')
+                    if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD')
                     {
                         document.getElementById('input_department').style.border="3px solid green";
                        if(numregx.test(tel))
@@ -224,22 +234,18 @@ function validateForm()
                             
                         document.getElementById('input_skype').style.border="3px solid red";
                         document.getElementById('skyperror').innerHTML="Enter valid skype ";
-                        error();
                         return false;
                           }
                        }
                        else{
                         document.getElementById('input_number').style.border="3px solid red";
                         document.getElementById('phnerror').innerHTML="Enter valid phone number";
-                        error();
                         return false;
                        }
                         
                     }
                     else{
                         document.getElementById('input_department').style.border="3px solid red";
-                        
-                        error();
                         return false;
                     }
 
@@ -247,8 +253,6 @@ function validateForm()
                 else{
                   
                     document.getElementById('input_job_title').style.border="3px solid red";
-                   
-                    error();
                     return false;
                 }
 
@@ -256,28 +260,17 @@ function validateForm()
             else{
                 document.getElementById('input_email').style.border="3px solid red";
                 document.getElementById('mailerror').innerHTML="Please fill valid email ";
-                error();
                 return false;
             }
             
         }
     }
 }
-function error()
-{
-  var choice=confirm("enter all the details");
-  if(choice==true){
-    Event.stopPropagation();
-    return true;
-  }
-  else{
-    return false;
-  }
-}
 // -----------------------------------DISPLAYING DATA INTO HTML PAGE--------------------------------------------------------------
 var output="";
 for(let i=0;i<myArray.length;i++)
 {
+    // console.log(myArray[i].firstName);
     output=output.concat(`
     <div class="emp" onclick="popup(${myArray[i].id})" > 
     <img src="${myArray[i].image}" alt="img" class="profilepic"> 
@@ -304,7 +297,8 @@ function filterIt(){
             count=count+1;
         }
     }
-    document.getElementById("it").innerHTML= "IT"+"("+count+")";   
+    document.getElementById("it").innerHTML= "IT"+"("+count+")";
+    
 }
 function filterHuman(){
     console.log("filterHr");
@@ -314,7 +308,8 @@ function filterHuman(){
             count=count+1;
         }
     }
-    document.getElementById("humanRes").innerHTML= "Human resource"+"("+ count+ ")";   
+    document.getElementById("humanRes").innerHTML= "Human resource"+"("+ count+ ")";
+    
 }
 function filterMd(){
     console.log("filter MD");
@@ -324,7 +319,8 @@ function filterMd(){
             count=count+1;
         }
     }
-    document.getElementById("md").innerHTML= "MD"+"("+ count+ ")";  
+    document.getElementById("md").innerHTML= "MD"+"("+ count+ ")";
+    
 }
 function filterUx(){
     console.log("filter Sales");
@@ -334,7 +330,8 @@ function filterUx(){
             count=count+1;
         }
     }
-    document.getElementById("uxdept").innerHTML= "UX department"+"("+ count+ ")";   
+    document.getElementById("uxdept").innerHTML= "UX department"+"("+ count+ ")";
+    
 }
 function filterSeattle(){
     console.log("filterSeattle");
@@ -344,7 +341,8 @@ function filterSeattle(){
             count=count+1;
         }
     }
-    document.getElementById("seattle").innerHTML= "Seattle"+"("+ count+ ")";  
+    document.getElementById("seattle").innerHTML= "Seattle"+"("+ count+ ")";
+    
 }
 function filterIndia(){
     console.log("filter India");
@@ -354,7 +352,8 @@ function filterIndia(){
             count=count+1;
         }
     }
-    document.getElementById("india").innerHTML= "India"+"("+ count+ ")"; 
+    document.getElementById("india").innerHTML= "India"+"("+ count+ ")";
+    
 }
 function filterSharePoint(){
     console.log("filter sharepoint");
@@ -462,12 +461,14 @@ function alpEmp(){
 }
 function clearEmp(){
     employees();
+
 }
 function dept(Dept){
     var result="";
     for(let i=0;i<myArray.length;i++){
       if(myArray[i].department==Dept)
       {
+        // console.log(myArray[i].PreferredName);
         result=result.concat(`
         <div class="emp">
         <img src="${myArray[i].image}" alt="img" class="profilepic"> 
@@ -485,10 +486,12 @@ function dept(Dept){
     </div>
         </div>
         `);
+   
       }
     }
     document.getElementsByClassName("results_box")[0].innerHTML=result;
 }
+
 function noRes()
 {
     document.getElementsByClassName("results_box")[0].innerHTML="<h1>"+"no results found"+"</h1>";
@@ -520,6 +523,7 @@ function offices(place){
       }
     }
 }
+
 function jobTitle(job){
     var result="";
     for(let i=0;i<myArray.length;i++){
@@ -545,6 +549,7 @@ function jobTitle(job){
      
     }
 }
+
   document.getElementsByClassName("results_box")[0].innerHTML=result;
    }
 // ----------------------------------------FUNCTION FOR ALPHABETICAL SEARCH--------------------------------------------------
@@ -634,7 +639,6 @@ function employees()
     var output="";
     for(let i=0;i<myArray.length;i++)
     {
-        // console.log(myArray[i].firstName);
         output=output.concat(`
         <div class="emp" onclick="popup(${myArray[i].id})">
         <img src="${myArray[i].image}" alt="img" class="profilepic"> 
@@ -655,6 +659,7 @@ function employees()
        document.getElementsByClassName("results_box")[0].innerHTML=output;
     } 
 }
+
 // -----------------------------------------------FOR SEARCH OPTION-----------------------------------------------------------------
 const search=document.getElementById('search');
 search.addEventListener('keyup',(e)=>{
@@ -733,10 +738,12 @@ search.addEventListener('keyup',(e)=>{
           </div>
           </div>
               </div>
-              `);          
+              `);
+           
           }
         }  
 }
+
   document.getElementsByClassName("results_box")[0].innerHTML=result;
 }  
 )
@@ -752,6 +759,7 @@ data=data.concat(`
 <div class="card_contents" id="data">
 <br>
 <h2 id="Prename" > ${myArray[i].PreferredName}</h2>
+
 <table>
 <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span > ${myArray[i].jobTitle}</span></td> </h5></tr>
 <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span> ${myArray[i].department}</span></td> </h5></tr>
@@ -761,17 +769,18 @@ data=data.concat(`
 </table>
  <br>
  <input type="button" value="EDIT" class="btn btn-info " id="edit" onclick="edit(${myArray[i].id}%100)">
+
 </div>
 </div>`);
 document.getElementById('bg-modal').innerHTML=data;
 document.getElementById('bg-modal').style.display='flex';
-employees();
+refreshPage();
 }
 function popup(j)
 {
     console.log(j);
     empCard(j%100);
-    employees();
+   refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
         
@@ -787,13 +796,14 @@ function edit(j){
     <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
     <div class="card_contents" id="data">
     <br>
-    <h3 > <span id="uPre" contenteditable="true">${myArray[i].PreferredName}</span><i class="bi bi-pencil"></i></h3>
+    <h3 > <span id="uPre" contenteditable="true">${myArray[i].PreferredName}</span></i></h3>
     <table>
-    <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span class="span" contenteditable="true" id="ujobtitle"> ${myArray[i].jobTitle}</span><i class="bi bi-pencil"></i></td> </h5></tr>
-    <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span class="span" contenteditable="true" id="udep"> ${myArray[i].department}</span><i class="bi bi-pencil"></i></td> </h5></tr>
-    <tr><h5 class="oofc"> <td>Office</td> <td>: &emsp;</td><td><span class="span" contenteditable="true" id="uoffc"> ${myArray[i].Office}</span><i class="bi bi-pencil"></i></td> </h5></tr>
-    <tr> <h5 class="phnno"><td>phone number </td><td>:&emsp; </td> <td><span contenteditable="true" class="span" id="uphn">  ${myArray[i].PhoneNumber}</span><i class="bi bi-pencil"></i></td> </h5></tr>
-    <tr>  <h5 class="mail"><td>Email id </td> <td>:&emsp; </td><td><span contenteditable="true" class="span" id="uemail"> ${myArray[i].email}</span><i class="bi bi-pencil"></i></td> </h5></tr>
+
+    <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span class="span" contenteditable="true" id="ujobtitle"> ${myArray[i].jobTitle}</span></td> </h5></tr>
+    <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span class="span" contenteditable="true" id="udep"> ${myArray[i].department}</span></td> </h5></tr>
+    <tr><h5 class="oofc"> <td>Office</td> <td>: &emsp;</td><td><span class="span" contenteditable="true" id="uoffc"> ${myArray[i].Office}</span></td> </h5></tr>
+    <tr> <h5 class="phnno"><td>phone number </td><td>:&emsp; </td> <td><span contenteditable="true" class="span" id="uphn">  ${myArray[i].PhoneNumber}</span></td> </h5></tr>
+    <tr>  <h5 class="mail"><td>Email id </td> <td>:&emsp; </td><td><span contenteditable="true" class="span" id="uemail"> ${myArray[i].email}</span></td> </h5></tr>
     </table>
      <br>
      <input type="button" value="UPDATE" class="btn btn-success " id="update" onclick="uempCard(${myArray[i].id}%100)">
@@ -801,11 +811,13 @@ function edit(j){
     </div>`);
     document.getElementById('bg-modal').innerHTML=info;
     document.getElementById('bg-modal').style.display='flex';
+    refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
         
     })
 }
+
 function uempCard(k)
 {
 var data="";
@@ -837,9 +849,10 @@ data=data.concat(`
 </div>`);
 document.getElementById('bg-modal').innerHTML=data;
 document.getElementById('bg-modal').style.display='flex';
-employees();
+refreshPage();
 document.getElementById('close').addEventListener('click',function(){
-    document.getElementById('bg-modal').style.display='none';  
+    document.getElementById('bg-modal').style.display='none';
+    
 })
 }
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
@@ -860,5 +873,5 @@ function refreshPage()
    filterEa();
    filterHr();
    filterQe();
-      employees();
+   employees();
 }
