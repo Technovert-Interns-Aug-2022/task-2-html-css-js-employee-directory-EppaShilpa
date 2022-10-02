@@ -659,7 +659,6 @@ function employees()
        document.getElementsByClassName("results_box")[0].innerHTML=output;
     } 
 }
-
 // -----------------------------------------------FOR SEARCH OPTION-----------------------------------------------------------------
 const search=document.getElementById('search');
 search.addEventListener('keyup',(e)=>{
