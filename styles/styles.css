@@ -1,7 +1,6 @@
 .row{
    margin: 30px;
    margin-bottom: 0px;
-
 }
 .logo{
    position: relative;
@@ -12,8 +11,15 @@
 
   right: 1%;
 }
+#img1{
+   width: 195px;
+   height: 95px;
+}
+#img2{
+   width: 70px;
+   height: 70px;
+}
 .left{
-
   text-align: left;
   line-height: 0.8cm;
 }
@@ -182,7 +188,6 @@ width: 500px;
 height: 400px;
 background-color: white;
 border-radius: 5px;
-
 padding: 20px;
 position: relative;
 }
@@ -251,4 +256,257 @@ height: 100px;
 #update{
    text-align: center;
    margin-left: 120px;
+}
+@media only screen and (max-width: 580px) {
+   body {
+     background-color: rgb(224, 231, 234);
+   }
+   .header{
+       display: flex;
+
+   }
+   #img1{
+       width: 295px;
+       height: 195px;
+      margin-left: 250px;
+
+    }
+    #img2{
+       width: 200px;
+       height: 170px;
+    }
+    .left{
+       display: flex;
+       flex-direction: column;
+       width: max-content;
+       line-height: 2cm;
+     }
+     .large{
+       font-size: 90px;
+    }
+    .med{
+       font-size: 65px;
+    }
+    .right p{
+       padding-right: 30px;
+       font-size: 70px;
+       font-weight: 500;
+
+    }
+    .right{
+       display: flex;
+       position: relative;
+       top:8%;
+    }
+
+    #line{
+       margin: 20px;
+       margin-top: 50px;
+    border-bottom: 4px solid rgb(18, 17, 17);
+    width: 350%;
+    }
+    .size{
+       font-size: 50px;
+       line-height: 2.5cm;
+       font-weight: 400;
+    }
+    li h4{
+       font-size: 60px;
+       font-weight: 700;
+    }
+    li{
+       list-style-type: none;
+       line-height: 1.5cm;
+       font-size: 60px;
+       width: max-content;
+    }
+    .ul{
+       display: grid;
+    }
+    .row1{
+       width: fit-content;
+    }
+    .alp{
+       width:77px;
+       font-size: 40px;
+       height: 70px;
+       margin-right: 5px;
+       color:white;
+     background-color:rgb(62, 204, 255);
+    }
+    .row2{
+       width: max-content;
+    }
+    label{
+       font-size: 50px;
+    }
+    .abc{
+       width: 40%;
+       height: 60px;
+    }
+    .clr{
+       width: 30%;
+       height: 70px;
+       font-size: 40px;
+    }
+    .addBtn{
+       height: 70px;
+       width: 30%;
+       font-size: 40px;
+       margin-top: 50px;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    .results_box{
+     height: 60%;
+     width:90% ;
+     border: 3px solid rgb(19, 19, 19);
+     margin: 20px;
+     margin-top: 20px;
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: column;
+  }
+  .emp{
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 10px;
+     padding: 10px;
+     background-color: rgb(234, 232, 232);
+     width: 800px;
+     height: 450px;
+  }
+  .profilepic{
+     width: 250px;
+     height: 300px;
+     float: left;
+     padding-top: 45px;
+     padding-right: 20px;
+  }
+  .emp h3{
+     font-size: 50px;
+     line-height: 1.5cm;
+
+  }
+  .emp p{
+     font-size: 40px;
+     line-height: 1.5cm;
+  }
+  .icons{
+
+     color: rgb(110, 119, 119);
+     font-size: 35px;
+  }
+  #bg-modal{
+     width: 400%;
+     height: 100%;
+     background-color: rgba(196, 192, 192, 0.4);
+     position: absolute;
+     top:0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     display: none;
+  }
+  .modal-contents{
+     width: 80%;
+     height: 1000px;
+     background-color: white;
+     border-radius: 5px;
+     padding: 20px;
+     position: relative;
+     }
+     #close{
+        position: absolute;
+        top:0;
+        right: 14px;
+        font-size: 80px;
+        transform: rotate(45deg);
+        cursor: pointer;
+     }
+     .card_contents h3{
+       font-size: 80px;
+     }
+     .modal-contents td{
+        font-size: 45px;
+     }
+     #edit{
+        text-align: center;
+        margin-left: 450px;
+       font-size: 50px;
+     }
+     #update{
+        text-align: center;
+        margin-left: 420px;
+        font-size: 50px;
+     }
+     #pp{
+        width: 350px;
+        height: 400px;
+     }
+     #Prename{
+        font-size: 80px;
+       font-weight: 600;
+     }
+     .empModal{
+        background-color: rgba(0,0,0,0.4);
+        margin-top: 20px;
+        margin-left: 30px;
+        height: 2800px;
+        width: 140%;
+     }
+     .empModalTitle{
+        font-size: 60px;
+     }
+   .input{
+     height: 90px;
+   }
+   #emp_button{
+     font-size: 40px;
+   }
+   #fnerror{
+     color: red;
+     font-size: 40px;
+  }
+  #lnerror{
+     color: red;
+     font-size: 40px;
+  }
+  #pnerror{
+     color: red;
+     font-size: 40px;
+  }
+  #mailerror{
+     color: red;
+     font-size: 40px;
+  }
+  #jterror{
+     color: red;
+     font-size: 40px;
+  }
+  #deperror{
+     color: red;
+     font-size: 40px;
+  }
+  #phnerror{
+     color: red;
+     font-size: 40px;
+  }
+  #skyperror{
+     color: red;
+     font-size: 40px;
+  }
+  #offcerror{
+     color: red;
+     font-size: 40px;
+  }
+  .close{
+     font-size: 50px;
+  }
+  .radio{
+     size: 20px;
+  }
+#file{
+  width:150px;
+}
 }

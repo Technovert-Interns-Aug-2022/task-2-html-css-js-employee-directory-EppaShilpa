@@ -103,7 +103,7 @@ const myArray = [
             "department":"UX department",
             "PhoneNumber":"9637419520",
              "SkypeId":"+91+9637419520"
-          }     
+          }
 ];
 
 function visible()
@@ -117,7 +117,7 @@ function hide(){
 }
 //---------------------------------------------------ADD EMPLOYEE BUTTON---------------------------------------------------------------------
 function added()
-{   
+{
 
    if(validateForm()) {
     console.log("form validated");
@@ -176,7 +176,7 @@ function clear_form_data()
     document.getElementById('pnerror').innerHTML="";
     document.getElementById('phnerror').innerHTML="";
     document.getElementById('skyperror').innerHTML="";
-    document.querySelector( 'input[name="location"]:checked').value=false;  
+    document.querySelector( 'input[name="location"]:checked').value=false;
 }
 //-----------------------------------------FORM VALIDATION------------------------------------------------------------------
 function validateForm()
@@ -194,7 +194,7 @@ function validateForm()
     var numregx=/^[6-9][0-9]{9}$/;
     var fullname=fname+" "+lname;
     if(!(namepat.test(fname)))
-    {   
+    {
         document.getElementById('input_fname').style.border="3px solid red";
         document.getElementById('fnerror').innerHTML="enter valid name";
     }
@@ -214,7 +214,7 @@ function validateForm()
         else{
             document.getElementById('input_lname').style.border="3px solid green";
             document.getElementById('input_pname').style.border="3px solid green";
-            
+
             if(regx.test(mail)){
                 document.getElementById('input_email').style.border="3px solid green";
                 document.getElementById('mailerror').innerHTML="";
@@ -233,7 +233,7 @@ function validateForm()
                             return true;
                           }
                           else{
-                            
+
                         document.getElementById('input_skype').style.border="3px solid red";
                         document.getElementById('skyperror').innerHTML="Enter valid skype ";
                         return false;
@@ -244,7 +244,7 @@ function validateForm()
                         document.getElementById('phnerror').innerHTML="Enter valid phone number";
                         return false;
                        }
-                        
+
                     }
                     else{
                         document.getElementById('input_department').style.border="3px solid red";
@@ -253,7 +253,7 @@ function validateForm()
 
                 }
                 else{
-                  
+
                     document.getElementById('input_job_title').style.border="3px solid red";
                     return false;
                 }
@@ -264,7 +264,7 @@ function validateForm()
                 document.getElementById('mailerror').innerHTML="Please fill valid email ";
                 return false;
             }
-            
+
         }
     }
 }
@@ -285,7 +285,7 @@ function dept(Dept){
       {
         result=result.concat(`
         <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
         <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -300,7 +300,7 @@ function dept(Dept){
     </div>
         </div>
         `);
-   
+
       }
     }
     document.getElementsByClassName("results_box")[0].innerHTML=result;
@@ -310,10 +310,10 @@ function offices(place){
     for(let i=0;i<myArray.length;i++){
       if(myArray[i].Office==place)
       {
-     
+
         result=result.concat(`
         <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
         <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -339,7 +339,7 @@ function jobTitle(job){
       {
         result=result.concat(`
         <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
         <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -354,7 +354,7 @@ function jobTitle(job){
     </div>
         </div>
         `);
-     
+
     }
 }
   document.getElementsByClassName("results_box")[0].innerHTML=result;
@@ -364,14 +364,14 @@ function alphabet(letter)
 {
     var result="";
     for(let i=0;i<myArray.length;i++)
-    { 
+    {
         if(((document.getElementById("slct_option").value)=="FirstName"))
       {
          if(myArray[i].firstName.charAt(0)==letter)
          {
             result=result.concat(`
             <div class="emp">
-            <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+            <img src="${myArray[i].image}" alt="img" class="profilepic">
             <div class="card_content">
             <h3 class="prefname">${myArray[i].PreferredName}</h3>
             <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -386,16 +386,16 @@ function alphabet(letter)
         </div>
             </div>
             `);
-        
+
          }
       }
-      else if(((document.getElementById("slct_option").value)=="LastName")) 
+      else if(((document.getElementById("slct_option").value)=="LastName"))
       {
         if(myArray[i].lastName.charAt(0)==letter)
         {
            result=result.concat(`
            <div class="emp">
-           <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+           <img src="${myArray[i].image}" alt="img" class="profilepic">
            <div class="card_content">
            <h3 class="prefname">${myArray[i].PreferredName}</h3>
            <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -410,7 +410,7 @@ function alphabet(letter)
        </div>
            </div>
            `);
-       
+
         }
       }
       else{
@@ -418,7 +418,7 @@ function alphabet(letter)
         {
            result=result.concat(`
            <div class="emp">
-           <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+           <img src="${myArray[i].image}" alt="img" class="profilepic">
            <div class="card_content">
            <h3 class="prefname">${myArray[i].PreferredName}</h3>
            <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -433,7 +433,7 @@ function alphabet(letter)
        </div>
            </div>
            `);
-       
+
         }
       }
 
@@ -448,9 +448,9 @@ function employees()
     {
         output=output.concat(`
         <div class="emp" onclick="popup(${myArray[i].id})">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
-        <h3 class="prefname">${myArray[i].PreferredName}</h3> 
+        <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
         <p class="dept">${myArray[i].department}</p>
         <div class="links">
@@ -464,7 +464,7 @@ function employees()
         </div>`);
         console.log(output);
        document.getElementsByClassName("results_box")[0].innerHTML=output;
-    } 
+    }
 }
 // -----------------------------------------------FOR SEARCH OPTION-----------------------------------------------------------------
 const search=document.getElementById('search');
@@ -473,14 +473,14 @@ search.addEventListener('keyup',(e)=>{
     var res=e.target.value;
     var result="";
     for(let i=0;i<myArray.length;i++){
-        if(((document.getElementById("slct_option").value)=="FirstName")) 
+        if(((document.getElementById("slct_option").value)=="FirstName"))
         {
             var name=myArray[i].firstName.toLowerCase();
             if((name.includes(res)))
           {
         result=result.concat(`
         <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
         <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -495,17 +495,17 @@ search.addEventListener('keyup',(e)=>{
     </div>
         </div>
         `);
-     
+
     }
         }
-       else if(((document.getElementById("slct_option").value)=="LastName")) 
+       else if(((document.getElementById("slct_option").value)=="LastName"))
         {
             var name=myArray[i].lastName.toLowerCase();
             if((name.includes(res)))
       {
         result=result.concat(`
         <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+        <img src="${myArray[i].image}" alt="img" class="profilepic">
         <div class="card_content">
         <h3 class="prefname">${myArray[i].PreferredName}</h3>
         <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -520,7 +520,7 @@ search.addEventListener('keyup',(e)=>{
     </div>
         </div>
         `);
-     
+
     }
         }
         else{
@@ -529,7 +529,7 @@ search.addEventListener('keyup',(e)=>{
             {
               result=result.concat(`
               <div class="emp">
-              <img src="${myArray[i].image}" alt="img" class="profilepic"> 
+              <img src="${myArray[i].image}" alt="img" class="profilepic">
               <div class="card_content">
               <h3 class="prefname">${myArray[i].PreferredName}</h3>
               <p class="jobtitle">${myArray[i].jobTitle}</p>
@@ -544,13 +544,13 @@ search.addEventListener('keyup',(e)=>{
           </div>
               </div>
               `);
-           
+
           }
-        }  
+        }
 }
 
   document.getElementsByClassName("results_box")[0].innerHTML=result;
-}  
+}
 )
 //---------------------------------------------DISPLAYING EMPLOYEE DETAILS ON CLICKING EMPLOYEE CARD----------------------------------------------
 function empCard(k)
@@ -558,7 +558,7 @@ function empCard(k)
 var data="";
 var i=k;
 data=data.concat(`
-<div class="modal-contents" > 
+<div class="modal-contents" >
 <div id="close">+</div>
 <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
 <div class="card_contents" id="data">
@@ -588,7 +588,7 @@ function popup(j)
    refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
-        
+
     })
 }
 function edit(j){
@@ -596,12 +596,12 @@ function edit(j){
     var info="";
     var i=j;
     info=info.concat(`
-    <div class="modal-contents" > 
+    <div class="modal-contents" >
     <div id="close">+</div>
     <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
     <div class="card_contents" id="data">
     <br>
-    <h3 > <span id="uPre" contenteditable="true">${myArray[i].PreferredName}</span></i></h3>
+    <h3 class="name"> <span id="uPre" contenteditable="true">${myArray[i].PreferredName}</span></h3>
     <table>
 
     <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span class="span" contenteditable="true" id="ujobtitle"> ${myArray[i].jobTitle}</span></td> </h5></tr>
@@ -619,7 +619,7 @@ function edit(j){
     refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
-        
+
     })
 }
 
@@ -634,12 +634,12 @@ myArray[i].Office=document.getElementById('uoffc').innerHTML;
 myArray[i].PhoneNumber=document.getElementById('uphn').innerHTML;
 myArray[i].email=document.getElementById('uemail').innerHTML;
 data=data.concat(`
-<div class="modal-contents" > 
+<div class="modal-contents" >
 <div id="close">+</div>
 <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
 <div class="card_contents" id="data">
 <br>
-<h2 >${myArray[i].PreferredName}</h2>
+<h2 id="Prename" >${myArray[i].PreferredName}</h2>
 <table>
 <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span > ${myArray[i].jobTitle}</span></td> </h5></tr>
 <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span> ${myArray[i].department}</span></td> </h5></tr>
@@ -657,12 +657,12 @@ document.getElementById('bg-modal').style.display='flex';
 refreshPage();
 document.getElementById('close').addEventListener('click',function(){
     document.getElementById('bg-modal').style.display='none';
-    
+
 })
 }
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
 function refreshPage()
-{    
+{
    filterDept();
    filterOffices();
    filterJobTitles();
@@ -719,48 +719,48 @@ function filterJobTitles()
        if(el.jobTitle=="SharePoint practice head")
        {
         jobTitleArray[0]++;
-        document.getElementById("sharepoint").innerHTML="SharePoint practice head"+"("+  jobTitleArray[0]+ ")"; 
+        document.getElementById("sharepoint").innerHTML="SharePoint practice head"+"("+  jobTitleArray[0]+ ")";
        }
        else if(el.jobTitle==".Net developement")
        {
         jobTitleArray[1]++;
-        document.getElementById("dotnet").innerHTML=".Net developement"+ "("+jobTitleArray[1]+")"; 
+        document.getElementById("dotnet").innerHTML=".Net developement"+ "("+jobTitleArray[1]+")";
        }
        else if(el.jobTitle=="Recruiting Expert")
        {
         jobTitleArray[2]++;
-        document.getElementById("recruit").innerHTML= "Recruiting Expert"+"("+ jobTitleArray[2]+ ")";   
+        document.getElementById("recruit").innerHTML= "Recruiting Expert"+"("+ jobTitleArray[2]+ ")";
        }
        else if(el.jobTitle=="HR manager")
        {
         jobTitleArray[3]++;
-        document.getElementById("hrM").innerHTML= "HR manager"+"("+ jobTitleArray[3]+ ")";   
+        document.getElementById("hrM").innerHTML= "HR manager"+"("+ jobTitleArray[3]+ ")";
        }
        else if(el.jobTitle=="BI Developer")
        {
         jobTitleArray[4]++;
-        document.getElementById("bi").innerHTML= "BI Developer"+"("+ jobTitleArray[4]+ ")";  
+        document.getElementById("bi").innerHTML= "BI Developer"+"("+ jobTitleArray[4]+ ")";
        }
        else if(el.jobTitle=="Business Analyst")
        {
         jobTitleArray[5]++;
-        document.getElementById("business").innerHTML= "Business Analyst"+"("+ jobTitleArray[5]+ ")";   
+        document.getElementById("business").innerHTML= "Business Analyst"+"("+ jobTitleArray[5]+ ")";
        }
        else if(el.jobTitle=="Software Developer")
        {
         jobTitleArray[6]++;
-        document.getElementById("software").innerHTML= "Software Developer"+"("+  jobTitleArray[6] + ")";  
+        document.getElementById("software").innerHTML= "Software Developer"+"("+  jobTitleArray[6] + ")";
        }
        else if(el.jobTitle=="Executive Assistant")
        {
         jobTitleArray[7]++;
-        document.getElementById("executive").innerHTML= "Executive Assistant"+"("+ jobTitleArray[7] + ")";   
+        document.getElementById("executive").innerHTML= "Executive Assistant"+"("+ jobTitleArray[7] + ")";
        }
        else if(el.jobTitle=="Quality engineer")
        {
         jobTitleArray[8]++;
-        document.getElementById("quality").innerHTML= "Quality engineer"+"("+ jobTitleArray[8] + ")";   
+        document.getElementById("quality").innerHTML= "Quality engineer"+"("+ jobTitleArray[8] + ")";
        }
-       
+
     });
 }
