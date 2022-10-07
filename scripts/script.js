@@ -1,4 +1,4 @@
-const myArray = [
+var myArray = [
     {   "id":100,
         "image":"../assets/emp1.jpg",
       "firstName":"Anthony",
@@ -106,6 +106,22 @@ const myArray = [
           }
 ];
 
+var jsonObj=JSON.stringify(myArray);
+console.log(jsonObj);
+console.log(localStorage.length)
+
+if(localStorage.length==0)
+{
+localStorage.setItem("myArray",jsonObj);
+}
+else{
+    myArray = JSON.parse(localStorage.getItem("myArray"));
+}
+const str=localStorage.getItem("myArray");
+console.log(str);
+const parsedStr=JSON.parse(str);
+console.log(parsedStr);
+//------------------------------------------------View more && View less---------------------------------------------------------------------
 function visible()
 {
     document.getElementsByClassName("listhidden")[0].style.display='block';
@@ -121,7 +137,7 @@ function added()
 
    if(validateForm()) {
     console.log("form validated");
-    var profile="../assets/emp7.jpg";
+    var profile=window.pat;
     var fname=document.getElementById("input_fname").value;
     var lname=document.getElementById("input_lname").value;
     var pname=document.getElementById("input_pname").value;
@@ -131,9 +147,9 @@ function added()
     var number=document.getElementById("input_number").value;
     var skype=document.getElementById("input_skype").value;
     var loc=document.querySelector( 'input[name="location"]:checked').value;
-   myArray.push({
+    myArray.push({
             "id":myArray.length+100,
-            "image":profile,
+            "image":"../assets/emp7.jpg",
             "firstName":fname,
             "lastName":lname,
             "PreferredName" : pname,
@@ -145,6 +161,7 @@ function added()
              "SkypeId":skype,
              "Office":loc
    });
+
 refreshPage();
 clear_form_data();
    $('#EmplyeeModal').modal('hide');
@@ -178,9 +195,11 @@ function clear_form_data()
     document.getElementById('skyperror').innerHTML="";
     document.querySelector( 'input[name="location"]:checked').value=false;
 }
+var newCount=0;
 //-----------------------------------------FORM VALIDATION------------------------------------------------------------------
 function validateForm()
 {
+
     var fname=document.getElementById("input_fname").value.trim();
     var lname=document.getElementById("input_lname").value.trim();
     var Pname=document.getElementById("input_pname").value.trim();
@@ -189,10 +208,19 @@ function validateForm()
     var dep=document.getElementById('input_department').value.trim();
     var tel=document.getElementById('input_number').value.trim();
     var sky=document.getElementById('input_skype').value.trim();
+
     var regx=/([a-zA-Z0-9\.-]+)@([a-z]+).([a-z]{2,10})/;
     var namepat=/^([a-zA-Z]+)$/;
     var numregx=/^[6-9][0-9]{9}$/;
     var fullname=fname+" "+lname;
+    class A{
+        static newCount=0;
+    static addNew(){
+        newCount++;
+        console.log(newCount);
+        document.getElementById('accounts').innerHTML=dep+"("+newCount+")";
+    }
+}
     if(!(namepat.test(fname)))
     {
         document.getElementById('input_fname').style.border="3px solid red";
@@ -221,9 +249,14 @@ function validateForm()
                 if(jtitle=='SharePoint practice head'||jtitle=='Operations manager'||jtitle=='Product manager'||jtitle=='.Net developement'||jtitle=='Network Engineer'||jtitle=='Business Analyst'||jtitle=='Software Engineer'||jtitle=='Software Developer')
                 {
                     document.getElementById('input_job_title').style.border="3px solid green";
-                    if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD')
+                    if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD'||dep=='Accounting')
                     {
                         document.getElementById('input_department').style.border="3px solid green";
+                        if(dep=='Accounting')
+                        {
+                            A.addNew();
+                            localStorage.setItem("myArray",JSON.stringify(myArray));
+                        }
                        if(numregx.test(tel))
                        {
                           document.getElementById('input_number').style.border="3px solid green";
@@ -267,6 +300,7 @@ function validateForm()
 
         }
     }
+
 }
 // -----------------------------------DISPLAYING DATA INTO HTML PAGE--------------------------------------------------------------
 refreshPage();
@@ -367,7 +401,7 @@ function alphabet(letter)
     {
         if(((document.getElementById("slct_option").value)=="FirstName"))
       {
-         if(myArray[i].firstName.charAt(0)==letter)
+         if(myArray[i].firstName.charAt(0).toLowerCase()==letter.toLowerCase())
          {
             result=result.concat(`
             <div class="emp">
@@ -391,7 +425,7 @@ function alphabet(letter)
       }
       else if(((document.getElementById("slct_option").value)=="LastName"))
       {
-        if(myArray[i].lastName.charAt(0)==letter)
+        if(myArray[i].lastName.charAt(0).toLowerCase()==letter.toLowerCase())
         {
            result=result.concat(`
            <div class="emp">
@@ -414,7 +448,7 @@ function alphabet(letter)
         }
       }
       else{
-        if(myArray[i].firstName.charAt(0)==letter)
+        if(myArray[i].firstName.charAt(0).toLowerCase()==letter.toLowerCase())
         {
            result=result.concat(`
            <div class="emp">
@@ -462,7 +496,7 @@ function employees()
     </div>
     </div>
         </div>`);
-        console.log(output);
+        // console.log(output);
        document.getElementsByClassName("results_box")[0].innerHTML=output;
     }
 }
@@ -476,7 +510,8 @@ search.addEventListener('keyup',(e)=>{
         if(((document.getElementById("slct_option").value)=="FirstName"))
         {
             var name=myArray[i].firstName.toLowerCase();
-            if((name.includes(res)))
+            var resname=res.toLowerCase();
+            if((name.includes(resname)))
           {
         result=result.concat(`
         <div class="emp">
@@ -501,7 +536,8 @@ search.addEventListener('keyup',(e)=>{
        else if(((document.getElementById("slct_option").value)=="LastName"))
         {
             var name=myArray[i].lastName.toLowerCase();
-            if((name.includes(res)))
+            var resname=res.toLowerCase();
+            if((name.includes(resname)))
       {
         result=result.concat(`
         <div class="emp">
@@ -525,7 +561,8 @@ search.addEventListener('keyup',(e)=>{
         }
         else{
             var name=myArray[i].PreferredName.toLowerCase();
-            if(name.includes(res))
+            var resname=res.toLowerCase();
+            if(name.includes(resname))
             {
               result=result.concat(`
               <div class="emp">
@@ -667,6 +704,7 @@ function refreshPage()
    filterOffices();
    filterJobTitles();
    employees();
+   localStorage.setItem("myArray",JSON.stringify(myArray));
 }
 function filterOffices(){
     var officeArray=[0,0];
