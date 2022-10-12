@@ -41,15 +41,12 @@
                      <li> <a href="#"  class="text-decoration-none link-dark size" class="filter_dept " id="humanRes"onclick="dept('Human resource')">Human resource(0)</a> </li>
                      <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="md" onclick="dept('MD')">MD(0)</a></li>
                      <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="uxdept" onclick="dept('UX department')">UX department(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="accounts" onclick="dept('Accounting')"></a></li>
-
                     </ul>
                     <br>
                     <ul class="ul">
                      <li><h4>Offices </h4></li>
                      <li><a href="#" class="text-decoration-none link-dark size" class="filter_offc" id="seattle" onclick="offices('Seattle')" >Seattle(0)</a></li>
                      <li><a href="#" class="text-decoration-none link-dark size" class="filter_offc" id="india" onclick="offices('India')" >India(0)</a></li>
-
                     </ul>
                     <br>
                     <ul class="ul">
@@ -135,7 +132,7 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form name="employe"enctype="multipart/form-data" action="/upload" id="newModalForm">
+                                            <form name="employe"enctype="multipart/form-data" action="/upload" id="newModalForm" method="GET" runat="server" >
                                                 <div >
                                                     <label class="form-label"><b>First Name</b></label>
                                                     <input type="text" class="form-control input" id="input_fname" name="fn" required>

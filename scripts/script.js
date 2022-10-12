@@ -105,7 +105,7 @@ var myArray = [
              "SkypeId":"+91+9637419520"
           }
 ];
-
+const departmentArray=["IT Department","Human resource","MD","UX department"];
 var jsonObj=JSON.stringify(myArray);
 console.log(jsonObj);
 console.log(localStorage.length)
@@ -115,6 +115,7 @@ if(localStorage.length==0)
 localStorage.setItem("myArray",jsonObj);
 }
 else{
+
     myArray = JSON.parse(localStorage.getItem("myArray"));
 }
 const str=localStorage.getItem("myArray");
@@ -206,21 +207,13 @@ function validateForm()
     var mail=document.getElementById("input_email").value.trim();
     var jtitle=document.getElementById('input_job_title').value.trim();
     var dep=document.getElementById('input_department').value.trim();
+    window.data=dep;
     var tel=document.getElementById('input_number').value.trim();
     var sky=document.getElementById('input_skype').value.trim();
-
     var regx=/([a-zA-Z0-9\.-]+)@([a-z]+).([a-z]{2,10})/;
     var namepat=/^([a-zA-Z]+)$/;
     var numregx=/^[6-9][0-9]{9}$/;
     var fullname=fname+" "+lname;
-    class A{
-        static newCount=0;
-    static addNew(){
-        newCount++;
-        console.log(newCount);
-        document.getElementById('accounts').innerHTML=dep+"("+newCount+")";
-    }
-}
     if(!(namepat.test(fname)))
     {
         document.getElementById('input_fname').style.border="3px solid red";
@@ -254,8 +247,10 @@ function validateForm()
                         document.getElementById('input_department').style.border="3px solid green";
                         if(dep=='Accounting')
                         {
-                            A.addNew();
-                            localStorage.setItem("myArray",JSON.stringify(myArray));
+                            // A.addNew();
+                            // localStorage.setItem("myArray",JSON.stringify(myArray));
+                            contains(departmentArray, dep);
+                            return true;
                         }
                        if(numregx.test(tel))
                        {
@@ -302,6 +297,7 @@ function validateForm()
     }
 
 }
+
 // -----------------------------------DISPLAYING DATA INTO HTML PAGE--------------------------------------------------------------
 refreshPage();
 function alpEmp(){
@@ -309,7 +305,6 @@ function alpEmp(){
 }
 function clearEmp(){
     employees();
-
 }
 //-------------------------------------------FILTERS----------------------------------------------------------------------------------
 function dept(Dept){
@@ -388,7 +383,6 @@ function jobTitle(job){
     </div>
         </div>
         `);
-
     }
 }
   document.getElementsByClassName("results_box")[0].innerHTML=result;
@@ -401,6 +395,7 @@ function alphabet(letter)
     {
         if(((document.getElementById("slct_option").value)=="FirstName"))
       {
+
          if(myArray[i].firstName.charAt(0).toLowerCase()==letter.toLowerCase())
          {
             result=result.concat(`
@@ -496,7 +491,6 @@ function employees()
     </div>
     </div>
         </div>`);
-        // console.log(output);
        document.getElementsByClassName("results_box")[0].innerHTML=output;
     }
 }
@@ -620,6 +614,7 @@ refreshPage();
 }
 function popup(j)
 {
+
     console.log(j);
     empCard(j%100);
    refreshPage();
@@ -659,7 +654,6 @@ function edit(j){
 
     })
 }
-
 function uempCard(k)
 {
 var data="";
@@ -719,6 +713,9 @@ myArray.forEach(el=>
         {
             officeArray[1]++;
             document.getElementById("india").innerHTML="India"+"("+officeArray[1]+")";
+        }
+        else{
+
         }
     }
     );
@@ -801,4 +798,25 @@ function filterJobTitles()
        }
 
     });
+}
+function contains(departmentArray,dep) {
+   var Newcount=0;
+    for (var i = 0; i < departmentArray.length; i++) {
+        if (departmentArray[i]!=dep) {
+            Newcount++;
+            departmentArray.push(dep);
+            console.log(departmentArray);
+            let ul = document.getElementsByTagName('ul')[0];
+          let li = document.createElement('li');
+          var result=`<a href="#" id="newdep"class="text-decoration-none link-dark size" class="filter_dept" onclick="dept('Accounting')"></a>`;
+           li.innerHTML =result;
+           ul.appendChild(li);
+             document.getElementById('newdep').innerHTML=dep+"("+Newcount+")";
+           localStorage.setItem("myArray",JSON.stringify(myArray));
+            break;
+
+        }
+
+    }
+
 }
