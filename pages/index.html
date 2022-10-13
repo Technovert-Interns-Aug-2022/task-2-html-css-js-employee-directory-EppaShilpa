@@ -68,7 +68,7 @@
                  </div>
                  <div class="col-lg-10 search">
                     <div class="row row1">
-                        <div class="row row1">
+                        <div class="row rowalp">
                             <button type="button" class="btn  alp" onclick="alpEmp()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person person" viewBox="0 0 16 16">
                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                               </svg></button>
@@ -102,21 +102,21 @@
                     <div class="row row2">
                         <div class="col-lg-5 ">
 
-                            <label for="search"><b>Search</b></label>
+                            <label for="search" class="searchClass"><b>Search</b></label>
 
-                            <input type="text" class="col-sm-7 col-form-label abc" name="" id="search" placeholder=" &emsp;&emsp; Enter Any Keyword" >
+                            <input type="text" class="col-sm-7 col-form-label " name="" id="search" placeholder=" &emsp;&emsp; Enter Any Keyword" >
                             &emsp;
                             <button type="button" class="btn btn-success clr" onclick="clearEmp()">Clear</button>
                          </div>
                          <div class="col-lg-5 ">
-                            <label for="namefilter"><b>Filter by</b></label>
-                            <select class="slct abc" id="slct_option">
-
+                            <label for="namefilter" class="filterClass"><b>Filter by</b></label>
+                            <select class="slct " id="slct_option">
                               <option  value="PreferredName" selected>Preferred Name</option>
                               <option value="FirstName">FirstName</option>
                               <option value="LastName">LastName</option>
-
                             </select>
+                            <button type="button" class="btn btn-light sort" onclick="SORT()"><i class="bi bi-sort-up"></i></button>
+                            <button type="button" class="btn btn-light sort" onclick="revSORT()"><i class="bi bi-sort-down"></i></button>
                            </div>
                            <div class="col-lg-2 ">
                             <button type="button" id="add_employee" class="btn btn-info addBtn" data-bs-toggle="modal"
@@ -202,7 +202,7 @@
                                                 </div>
                                                 <div>
                                                     <label for="image"><b>UPLOAD IMAGE</b></label> <br>
-                                                    <input id="File1" type="file" onchange="LoadImage()"/>
+                                                    <input id="File1" type="file" required />
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-success abc"  id="emp_button"  onclick=" added()">Add employee</button>

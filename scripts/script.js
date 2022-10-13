@@ -150,7 +150,7 @@ function added()
     var loc=document.querySelector( 'input[name="location"]:checked').value;
     myArray.push({
             "id":myArray.length+100,
-            "image":"../assets/emp7.jpg",
+            "image": window.imageUrl,
             "firstName":fname,
             "lastName":lname,
             "PreferredName" : pname,
@@ -194,6 +194,7 @@ function clear_form_data()
     document.getElementById('pnerror').innerHTML="";
     document.getElementById('phnerror').innerHTML="";
     document.getElementById('skyperror').innerHTML="";
+    document.getElementById('File1').value="";
     document.querySelector( 'input[name="location"]:checked').value=false;
 }
 var newCount=0;
@@ -595,7 +596,7 @@ data=data.concat(`
 <div class="card_contents" id="data">
 <br>
 <h2 id="Prename" > ${myArray[i].PreferredName}</h2>
-
+<hr>
 <table>
 <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span > ${myArray[i].jobTitle}</span></td> </h5></tr>
 <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span> ${myArray[i].department}</span></td> </h5></tr>
@@ -633,17 +634,19 @@ function edit(j){
     <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
     <div class="card_contents" id="data">
     <br>
-    <h3 class="name"> <span id="uPre" contenteditable="true">${myArray[i].PreferredName}</span></h3>
-    <table>
+    <h3 class="name" ><input type="text" value="${myArray[i].PreferredName}" id="uPre" contenteditable="true" onchange="updateEnable()" style="border:none;" > </h3>
+    <table class="editdata">
+    <tr><td class="title">Job Title</td> <td>:</td> <td><input type="text" value="${myArray[i].jobTitle}" id="ujobtitle" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
+        <tr><td class="dept"> Department</td> <td>:</td> <td><input type="text" value="${myArray[i].department}" id="udep" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
+        <tr><td class="oofc">Office</td> <td>:</td> <td><input type="text" value="${myArray[i].Office}" id="uoffc" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
+        <tr><td class="phnno">phone number </td> <td>:</td> <td><input type="text" value="${myArray[i].PhoneNumber}" id="uphn" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
+        <tr><td class="mail">Email id </td> <td>:</td> <td><input type="text" value="${myArray[i].email}" id="uemail" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
 
-    <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span class="span" contenteditable="true" id="ujobtitle"> ${myArray[i].jobTitle}</span></td> </h5></tr>
-    <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span class="span" contenteditable="true" id="udep"> ${myArray[i].department}</span></td> </h5></tr>
-    <tr><h5 class="oofc"> <td>Office</td> <td>: &emsp;</td><td><span class="span" contenteditable="true" id="uoffc"> ${myArray[i].Office}</span></td> </h5></tr>
-    <tr> <h5 class="phnno"><td>phone number </td><td>:&emsp; </td> <td><span contenteditable="true" class="span" id="uphn">  ${myArray[i].PhoneNumber}</span></td> </h5></tr>
-    <tr>  <h5 class="mail"><td>Email id </td> <td>:&emsp; </td><td><span contenteditable="true" class="span" id="uemail"> ${myArray[i].email}</span></td> </h5></tr>
+
     </table>
      <br>
-     <input type="button" value="UPDATE" class="btn btn-success " id="update" onclick="uempCard(${myArray[i].id}%100)">
+     <button class="btn btn-success" id="update" onclick="uempCard(${myArray[i].id}%100)" disabled>UPDATE</button>
+
     </div>
     </div>`);
     document.getElementById('bg-modal').innerHTML=info;
@@ -654,16 +657,20 @@ function edit(j){
 
     })
 }
+function updateEnable()
+{
+    document.getElementById('update').disabled=false;
+}
 function uempCard(k)
 {
 var data="";
 var i=k;
-myArray[i].PreferredName=document.getElementById('uPre').innerHTML;
-myArray[i].jobTitle=document.getElementById('ujobtitle').innerHTML;
-myArray[i].department=document.getElementById('udep').innerHTML;
-myArray[i].Office=document.getElementById('uoffc').innerHTML;
-myArray[i].PhoneNumber=document.getElementById('uphn').innerHTML;
-myArray[i].email=document.getElementById('uemail').innerHTML;
+myArray[i].PreferredName=document.getElementById('uPre').value;
+myArray[i].jobTitle=document.getElementById('ujobtitle').value;
+myArray[i].department=document.getElementById('udep').value;
+myArray[i].Office=document.getElementById('uoffc').value;
+myArray[i].PhoneNumber=document.getElementById('uphn').value;
+myArray[i].email=document.getElementById('uemail').value;
 data=data.concat(`
 <div class="modal-contents" >
 <div id="close">+</div>
@@ -814,9 +821,36 @@ function contains(departmentArray,dep) {
              document.getElementById('newdep').innerHTML=dep+"("+Newcount+")";
            localStorage.setItem("myArray",JSON.stringify(myArray));
             break;
-
         }
-
     }
-
 }
+function SORT()
+{
+    myArray.sort(function(a,b){
+        if(a.firstName.toLowerCase()<b.firstName.toLowerCase())  return -1;
+        if(a.firstName.toLowerCase()>b.firstName.toLowerCase())  return 1;
+        return 0;
+    });
+    employees();
+}
+function revSORT()
+{
+
+    myArray.sort(function(a,b){
+        if(a.firstName.toLowerCase()<b.firstName.toLowerCase())  return 1;
+        if(a.firstName.toLowerCase()>b.firstName.toLowerCase())  return -1;
+        return 0;
+    });
+    employees();
+}
+const fileInput = document.getElementById('File1');
+var imageUrl;
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        window.reader = new FileReader();
+        window.reader.onloadend = () => {
+             imageUrl=reader.result;
+            console.log(reader.result);
+        };
+        window.reader.readAsDataURL(file);
+    });
