@@ -9,7 +9,7 @@ var myArray = [
       "Office":"India",
       "department":"IT Department",
       "PhoneNumber":"9562562567",
-       "SkypeId":"+91+9562562567"
+       "SkypeId":"anthonymorris@skype.com"
     },
     {    "id":101,
          "image":"../assets/emp2.jpg",
@@ -21,7 +21,7 @@ var myArray = [
         "Office":"India",
         "department":"IT Department",
         "PhoneNumber":"9362565567",
-         "SkypeId":"+91+9362565567"
+         "SkypeId":"helenzimmerma@skype.com"
       }
       ,
           {
@@ -35,7 +35,7 @@ var myArray = [
             "Office":"Seattle",
             "department":"MD",
             "PhoneNumber":"8925555236",
-             "SkypeId":"+91+8925555236"
+             "SkypeId":"jonathonsmith@skype.com"
           },
           { "id":103,
             "image":"../assets/emp4.jpg",
@@ -47,7 +47,7 @@ var myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9632587415",
-             "SkypeId":"+91+9632587415"
+             "SkypeId":"tamihopkins@skype.com"
           }
           ,
           { "id":104,
@@ -60,7 +60,7 @@ var myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9517536842",
-             "SkypeId":"+91+9517536842"
+             "SkypeId":"franklinhumark@skype.com"
           }
           ,
           {
@@ -74,7 +74,7 @@ var myArray = [
             "Office":"Seattle",
             "department":"IT Department",
             "PhoneNumber":"9637415820",
-             "SkypeId":"+91+9637415820"
+             "SkypeId":"angelabailey@skype.com"
           }
           ,
           {
@@ -88,7 +88,7 @@ var myArray = [
             "Office":"India",
             "department":"IT Department",
             "PhoneNumber":"9637415820",
-             "SkypeId":"+91+9637415820"
+             "SkypeId":"robertmitchell@skype.com"
           }
           ,
           {
@@ -102,20 +102,17 @@ var myArray = [
             "Office":"Seattle",
             "department":"UX department",
             "PhoneNumber":"9637419520",
-             "SkypeId":"+91+9637419520"
+             "SkypeId":"olivawatson@skype.com"
           }
 ];
 const departmentArray=["IT Department","Human resource","MD","UX department"];
 var jsonObj=JSON.stringify(myArray);
 console.log(jsonObj);
-console.log(localStorage.length)
-
 if(localStorage.length==0)
 {
 localStorage.setItem("myArray",jsonObj);
 }
 else{
-
     myArray = JSON.parse(localStorage.getItem("myArray"));
 }
 const str=localStorage.getItem("myArray");
@@ -127,15 +124,35 @@ function visible()
 {
     document.getElementsByClassName("listhidden")[0].style.display='block';
     document.getElementById('viewmore').style.display='none';
+    var x = window.matchMedia("(max-width: 580px)");
+myFunction1(x);
+x.addListener(myFunction1) ;
 }
 function hide(){
     document.getElementsByClassName("listhidden")[0].style.display='none';
     document.getElementById('viewmore').style.display='block';
+    var x = window.matchMedia("(max-width: 580px)");
+    myFunction2(x);
 }
+function myFunction1(x) {
+    if (x.matches) {
+      document.getElementById('search').style.top="-2450px";
+      document.getElementsByClassName('searchClass')[0].style.top="-2450px";
+      document.getElementsByClassName('slct')[0].style.top="-2300%";
+      document.getElementsByClassName('filterClass')[0].style.top="-2300%";
+    }
+  }
+  function myFunction2(x) {
+    if (x.matches) {
+      document.getElementById('search').style.top="-2450%";
+      document.getElementsByClassName('searchClass')[0].style.top="-2450%";
+      document.getElementsByClassName('slct')[0].style.top="-1930%";
+      document.getElementsByClassName('filterClass')[0].style.top="-1930%";
+    }
+  }
 //---------------------------------------------------ADD EMPLOYEE BUTTON---------------------------------------------------------------------
 function added()
 {
-
    if(validateForm()) {
     console.log("form validated");
     var profile=window.pat;
@@ -162,7 +179,6 @@ function added()
              "SkypeId":skype,
              "Office":loc
    });
-
 refreshPage();
 clear_form_data();
    $('#EmplyeeModal').modal('hide');
@@ -201,7 +217,6 @@ var newCount=0;
 //-----------------------------------------FORM VALIDATION------------------------------------------------------------------
 function validateForm()
 {
-
     var fname=document.getElementById("input_fname").value.trim();
     var lname=document.getElementById("input_lname").value.trim();
     var Pname=document.getElementById("input_pname").value.trim();
@@ -231,12 +246,10 @@ function validateForm()
                 document.getElementById('input_pname').style.border="3px solid red";
                 document.getElementById('pnerror').innerHTML="full name=first name+ last name";
                   }
-
         }
         else{
             document.getElementById('input_lname').style.border="3px solid green";
             document.getElementById('input_pname').style.border="3px solid green";
-
             if(regx.test(mail)){
                 document.getElementById('input_email').style.border="3px solid green";
                 document.getElementById('mailerror').innerHTML="";
@@ -248,8 +261,6 @@ function validateForm()
                         document.getElementById('input_department').style.border="3px solid green";
                         if(dep=='Accounting')
                         {
-                            // A.addNew();
-                            // localStorage.setItem("myArray",JSON.stringify(myArray));
                             contains(departmentArray, dep);
                             return true;
                         }
@@ -262,7 +273,6 @@ function validateForm()
                             return true;
                           }
                           else{
-
                         document.getElementById('input_skype').style.border="3px solid red";
                         document.getElementById('skyperror').innerHTML="Enter valid skype ";
                         return false;
@@ -273,27 +283,22 @@ function validateForm()
                         document.getElementById('phnerror').innerHTML="Enter valid phone number";
                         return false;
                        }
-
                     }
                     else{
                         document.getElementById('input_department').style.border="3px solid red";
                         return false;
                     }
-
                 }
                 else{
-
                     document.getElementById('input_job_title').style.border="3px solid red";
                     return false;
                 }
-
             }
             else{
                 document.getElementById('input_email').style.border="3px solid red";
                 document.getElementById('mailerror').innerHTML="Please fill valid email ";
                 return false;
             }
-
         }
     }
 
@@ -330,7 +335,6 @@ function dept(Dept){
     </div>
         </div>
         `);
-
       }
     }
     document.getElementsByClassName("results_box")[0].innerHTML=result;
@@ -416,7 +420,6 @@ function alphabet(letter)
         </div>
             </div>
             `);
-
          }
       }
       else if(((document.getElementById("slct_option").value)=="LastName"))
@@ -440,7 +443,6 @@ function alphabet(letter)
        </div>
            </div>
            `);
-
         }
       }
       else{
@@ -463,7 +465,6 @@ function alphabet(letter)
        </div>
            </div>
            `);
-
         }
       }
 
@@ -525,7 +526,6 @@ search.addEventListener('keyup',(e)=>{
     </div>
         </div>
         `);
-
     }
         }
        else if(((document.getElementById("slct_option").value)=="LastName"))
@@ -533,7 +533,7 @@ search.addEventListener('keyup',(e)=>{
             var name=myArray[i].lastName.toLowerCase();
             var resname=res.toLowerCase();
             if((name.includes(resname)))
-      {
+             {
         result=result.concat(`
         <div class="emp">
         <img src="${myArray[i].image}" alt="img" class="profilepic">
@@ -576,11 +576,9 @@ search.addEventListener('keyup',(e)=>{
           </div>
               </div>
               `);
-
           }
         }
 }
-
   document.getElementsByClassName("results_box")[0].innerHTML=result;
 }
 )
@@ -596,17 +594,17 @@ data=data.concat(`
 <div class="card_contents" id="data">
 <br>
 <h2 id="Prename" > ${myArray[i].PreferredName}</h2>
-<hr>
+<hr style="height:2px;color:black;">
 <table>
 <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span > ${myArray[i].jobTitle}</span></td> </h5></tr>
 <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span> ${myArray[i].department}</span></td> </h5></tr>
 <tr><h5 class="oofc"> <td>Office</td> <td>: &emsp;</td><td><span > ${myArray[i].Office}</span></td> </h5></tr>
 <tr> <h5 class="phnno"><td>phone number </td><td>:&emsp; </td> <td><span >  ${myArray[i].PhoneNumber}</span></td> </h5></tr>
 <tr>  <h5 class="mail"><td>Email id </td> <td>:&emsp; </td><td><span > ${myArray[i].email}</span></td> </h5></tr>
+<tr>  <h5 class="skypeid"><td>Skype id </td> <td>:&emsp; </td><td><span > ${myArray[i].SkypeId}</span></td> </h5></tr>
 </table>
  <br>
  <input type="button" value="EDIT" class="btn btn-info " id="edit" onclick="edit(${myArray[i].id}%100)">
-
 </div>
 </div>`);
 document.getElementById('bg-modal').innerHTML=data;
@@ -615,13 +613,11 @@ refreshPage();
 }
 function popup(j)
 {
-
     console.log(j);
     empCard(j%100);
    refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
-
     })
 }
 function edit(j){
@@ -631,7 +627,10 @@ function edit(j){
     info=info.concat(`
     <div class="modal-contents" >
     <div id="close">+</div>
-    <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
+    <form action="" >
+    <img src="${myArray[i].image}" alt="img" class="profilepic newprofile" id="pp" id="coverPreview" alt="">
+    <input type="file" id="cover" />
+  </form>
     <div class="card_contents" id="data">
     <br>
     <h3 class="name" ><input type="text" value="${myArray[i].PreferredName}" id="uPre" contenteditable="true" onchange="updateEnable()" style="border:none;" > </h3>
@@ -641,12 +640,10 @@ function edit(j){
         <tr><td class="oofc">Office</td> <td>:</td> <td><input type="text" value="${myArray[i].Office}" id="uoffc" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
         <tr><td class="phnno">phone number </td> <td>:</td> <td><input type="text" value="${myArray[i].PhoneNumber}" id="uphn" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
         <tr><td class="mail">Email id </td> <td>:</td> <td><input type="text" value="${myArray[i].email}" id="uemail" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
-
-
+        <tr><td class="skypeid">Skype id </td> <td>:</td> <td><input type="text" value="${myArray[i].SkypeId}" id="uskype" class="span" contenteditable="true" onchange="updateEnable()"></td></tr>
     </table>
      <br>
      <button class="btn btn-success" id="update" onclick="uempCard(${myArray[i].id}%100)" disabled>UPDATE</button>
-
     </div>
     </div>`);
     document.getElementById('bg-modal').innerHTML=info;
@@ -654,7 +651,6 @@ function edit(j){
     refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
-
     })
 }
 function updateEnable()
@@ -671,6 +667,7 @@ myArray[i].department=document.getElementById('udep').value;
 myArray[i].Office=document.getElementById('uoffc').value;
 myArray[i].PhoneNumber=document.getElementById('uphn').value;
 myArray[i].email=document.getElementById('uemail').value;
+myArray[i].SkypeId=document.getElementById('uskype').value;
 data=data.concat(`
 <div class="modal-contents" >
 <div id="close">+</div>
@@ -684,10 +681,10 @@ data=data.concat(`
 <tr><h5 class="oofc"> <td>Office</td> <td>: &emsp;</td><td><span > ${myArray[i].Office}</span></td> </h5></tr>
 <tr> <h5 class="phnno"><td>phone number </td><td>:&emsp; </td> <td><span >  ${myArray[i].PhoneNumber}</span></td> </h5></tr>
 <tr>  <h5 class="mail"><td>Email id </td> <td>:&emsp; </td><td><span > ${myArray[i].email}</span></td> </h5></tr>
+<tr>  <h5 class="skypeid"><td>Skype id </td> <td>:&emsp; </td><td><span > ${myArray[i].SkypeId}</span></td> </h5></tr>
 </table>
  <br>
  <input type="button" value="EDIT" class="btn btn-info " id="edit" onclick="edit(${myArray[i].id}%100)">
-
 </div>
 </div>`);
 document.getElementById('bg-modal').innerHTML=data;
@@ -695,7 +692,6 @@ document.getElementById('bg-modal').style.display='flex';
 refreshPage();
 document.getElementById('close').addEventListener('click',function(){
     document.getElementById('bg-modal').style.display='none';
-
 })
 }
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
@@ -720,9 +716,6 @@ myArray.forEach(el=>
         {
             officeArray[1]++;
             document.getElementById("india").innerHTML="India"+"("+officeArray[1]+")";
-        }
-        else{
-
         }
     }
     );
@@ -803,7 +796,6 @@ function filterJobTitles()
         jobTitleArray[8]++;
         document.getElementById("quality").innerHTML= "Quality engineer"+"("+ jobTitleArray[8] + ")";
        }
-
     });
 }
 function contains(departmentArray,dep) {
@@ -835,7 +827,6 @@ function SORT()
 }
 function revSORT()
 {
-
     myArray.sort(function(a,b){
         if(a.firstName.toLowerCase()<b.firstName.toLowerCase())  return 1;
         if(a.firstName.toLowerCase()>b.firstName.toLowerCase())  return -1;
@@ -854,3 +845,28 @@ var imageUrl;
         };
         window.reader.readAsDataURL(file);
     });
+function showFilters()
+{
+    document.getElementsByClassName('ul')[0].style.display="grid";
+    document.getElementsByClassName('ul')[1].style.display="grid";
+    document.getElementsByClassName('ul')[2].style.display="grid";
+    document.getElementsByClassName('ul')[3].style.display="grid";
+    document.getElementById('search').style.top="-2450%";
+    document.getElementById('showFilter').style.visibility="hidden";
+    document.getElementsByClassName('searchClass')[0].style.top="-2450%";
+    document.getElementsByClassName('slct')[0].style.top="-1920%";
+    document.getElementsByClassName('filterClass')[0].style.top="-1920%";
+}
+function hideFilters()
+{
+    document.getElementById('showFilter').style.visibility="visible";
+    document.getElementsByClassName('ul')[0].style.display="none";
+    document.getElementsByClassName('listhidden')[0].style.display="none";
+    document.getElementsByClassName('ul')[1].style.display="none";
+    document.getElementsByClassName('ul')[2].style.display="none";
+    document.getElementsByClassName('ul')[3].style.display="none";
+    document.getElementById('search').style.top="-550px";
+    document.getElementsByClassName('searchClass')[0].style.top="-550px";
+    document.getElementsByClassName('slct')[0].style.top="-550px";
+    document.getElementsByClassName('filterClass')[0].style.top="-550px";
+}

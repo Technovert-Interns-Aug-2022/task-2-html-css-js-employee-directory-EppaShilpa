@@ -41,6 +41,14 @@
 .med{
    font-size: 20px;
 }
+#showFilter{
+   display: none;
+}
+#hideFilter{
+   font-size: 60px;
+   display: none;
+   margin-left: 500px;
+}
 li{
    list-style-type: none;
    line-height: 0.8cm;
@@ -51,6 +59,7 @@ li h4{
 li a{
    color: rgb(62, 204, 255);
 }
+
 .alp{
    width:37px;
    margin-right: 2px;
@@ -71,10 +80,10 @@ border-bottom: 2px solid rgb(170, 160, 160);
 }
 .listhidden{
    display: none;
+   margin-top: -15px;
 }
 .part2{
    margin: -10px;
-   /* margin-right: 200px; */
 }
 .filter{
    margin-top: 30px;
@@ -88,7 +97,6 @@ border-bottom: 2px solid rgb(170, 160, 160);
    position: relative;
    top:30%;
    left: 3%;
-
 }
 .clear{
    position: relative;
@@ -98,7 +106,6 @@ border-bottom: 2px solid rgb(170, 160, 160);
    position: absolute;
    width: 40%;
    height: 35px;
-
 }
 .row2 #icontri{
    position: relative;
@@ -129,6 +136,15 @@ border-bottom: 2px solid rgb(170, 160, 160);
    float: left;
    padding-top: 15px;
    padding-right: 20px;
+}
+.newprofile{
+   position: relative;
+   left:-20%;
+
+}.newpp{
+   position: relative;
+   left:-20%;
+   top:10%;
 }
 .filter_dept{
    color: black;
@@ -200,10 +216,14 @@ position: relative;
    cursor: pointer;
 }
 #pp{
+   float: left;
 margin-left: 190px;
 width: 100px;
 height: 100px;
 }
+#cover{
+   display:none;
+ }
 .card_contents{
    padding-top: 80px;
    padding-left: 80px;
@@ -257,7 +277,6 @@ border: none;
    font-size: 17px;
    font-weight: 500;
 }
-
 #update{
    text-align: center;
    margin-left: 120px;
@@ -270,8 +289,6 @@ border: none;
    }
    .header{
        display: flex;
-
-
    }
    #img1{
        width: 295px;
@@ -315,14 +332,16 @@ border: none;
     border-bottom: 4px solid rgb(18, 17, 17);
     width: 350%;
     }
-    .part2{
-
-    }
     .size{
        font-size: 50px;
        line-height: 2.5cm;
        font-weight: 400;
     }
+    #showFilter{
+      display: block;
+      font-size: 50px;
+     margin-left: 500px;
+   }
     li h4{
        font-size: 60px;
        font-weight: 700;
@@ -335,6 +354,7 @@ border: none;
     }
     .ul{
        display: grid;
+       display: none;
     }
     .row1{
       width: 520%;
@@ -345,9 +365,9 @@ border: none;
     .alp{
       position: relative;
        width:77px;
-       font-size: 40px;
+       font-size: 45px;
        height: 70px;
-       margin-right: 15px;
+       margin-right: 10px;
        margin-bottom: 5px;
        color:white;
      background-color:rgb(62, 204, 255);
@@ -360,7 +380,7 @@ border: none;
     }
     .searchClass{
       position: relative;
-      top:-1950px;
+      top:-550px;
      margin-bottom: 20px;
      width: fit-content;
      margin-top: -180px;
@@ -370,7 +390,7 @@ border: none;
       height: 70px;
       height: 60px;
       position: relative;
-      top:-2300%;
+      top:-550px;
       left: 10%;
       border: 1px solid red;
       font-size: 40px;
@@ -378,15 +398,15 @@ border: none;
 
     .filterClass{
       position: relative;
-      top:-1930px;
+      top:-550px;
       margin-bottom: 30px;
     }
     .slct{
       width: 40%;
       height: 70px;
       position: relative;
-      top:-1930px;
-      left: 10%;
+      top:-550px;
+      left: 7%;
       font-weight: 600;
      font-size: 40px;
      font-weight: 300;
@@ -407,16 +427,14 @@ border: none;
    .sort{
       font-size: 60px;
       position: relative;
-      top:-100%;
-
-      margin-right: 10px;
+      top:-50%;
+      margin-right: 20px;
    }
     .addBtn{
        height: 70px;
        width: 30%;
        font-size: 40px;
        margin-top: -10%;
-       /* margin-top: 50px; */
 
     }
     .results_box{
@@ -447,6 +465,7 @@ border: none;
      float: left;
      padding-top: 45px;
      padding-right: 20px;
+     display: inline;
   }
   .emp h3{
      font-size: 50px;
