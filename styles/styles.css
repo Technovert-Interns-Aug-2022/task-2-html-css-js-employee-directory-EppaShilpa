@@ -49,6 +49,10 @@
    display: none;
    margin-left: 500px;
 }
+.filterheading{
+   font-weight: 700;
+   margin-left: 35px;
+}
 li{
    list-style-type: none;
    line-height: 0.8cm;
@@ -84,6 +88,8 @@ border-bottom: 2px solid rgb(170, 160, 160);
 }
 .part2{
    margin: -10px;
+   /* margin-right: 200px; */
+   margin-top: -30px;
 }
 .filter{
    margin-top: 30px;
@@ -332,20 +338,17 @@ border: none;
     border-bottom: 4px solid rgb(18, 17, 17);
     width: 350%;
     }
+
     .size{
        font-size: 50px;
        line-height: 2.5cm;
        font-weight: 400;
     }
-    #showFilter{
-      display: block;
-      font-size: 50px;
-     margin-left: 500px;
-   }
-    li h4{
+   .filterheading{
        font-size: 60px;
        font-weight: 700;
-    }
+       width: 420px;
+   }
     li{
        list-style-type: none;
        line-height: 1.5cm;
@@ -354,7 +357,7 @@ border: none;
     }
     .ul{
        display: grid;
-       display: none;
+
     }
     .row1{
       width: 520%;
@@ -378,9 +381,10 @@ border: none;
     label{
        font-size: 50px;
     }
+  
     .searchClass{
       position: relative;
-      top:-550px;
+      top:-1750px;
      margin-bottom: 20px;
      width: fit-content;
      margin-top: -180px;
@@ -390,22 +394,24 @@ border: none;
       height: 70px;
       height: 60px;
       position: relative;
-      top:-550px;
+      top:-1750px;
       left: 10%;
       border: 1px solid red;
       font-size: 40px;
     }
-
+  #more{
+   font-size: 50px;
+  }
     .filterClass{
       position: relative;
-      top:-550px;
+      top:-1760px;
       margin-bottom: 30px;
     }
     .slct{
       width: 40%;
       height: 70px;
       position: relative;
-      top:-550px;
+      top:-1760px;
       left: 7%;
       font-weight: 600;
      font-size: 40px;
@@ -435,7 +441,6 @@ border: none;
        width: 30%;
        font-size: 40px;
        margin-top: -10%;
-
     }
     .results_box{
      height: 60%;

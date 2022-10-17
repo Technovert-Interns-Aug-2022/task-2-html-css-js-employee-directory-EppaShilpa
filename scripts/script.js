@@ -105,54 +105,25 @@ var myArray = [
              "SkypeId":"olivawatson@skype.com"
           }
 ];
-const departmentArray=["IT Department","Human resource","MD","UX department"];
+var departmentArray=["IT Department","Human resource","MD","UX department"];
 var jsonObj=JSON.stringify(myArray);
-console.log(jsonObj);
+console.log(localStorage.length)
+
 if(localStorage.length==0)
 {
 localStorage.setItem("myArray",jsonObj);
 }
 else{
+
     myArray = JSON.parse(localStorage.getItem("myArray"));
 }
 const str=localStorage.getItem("myArray");
-console.log(str);
 const parsedStr=JSON.parse(str);
-console.log(parsedStr);
-//------------------------------------------------View more && View less---------------------------------------------------------------------
-function visible()
-{
-    document.getElementsByClassName("listhidden")[0].style.display='block';
-    document.getElementById('viewmore').style.display='none';
-    var x = window.matchMedia("(max-width: 580px)");
-myFunction1(x);
-x.addListener(myFunction1) ;
-}
-function hide(){
-    document.getElementsByClassName("listhidden")[0].style.display='none';
-    document.getElementById('viewmore').style.display='block';
-    var x = window.matchMedia("(max-width: 580px)");
-    myFunction2(x);
-}
-function myFunction1(x) {
-    if (x.matches) {
-      document.getElementById('search').style.top="-2450px";
-      document.getElementsByClassName('searchClass')[0].style.top="-2450px";
-      document.getElementsByClassName('slct')[0].style.top="-2300%";
-      document.getElementsByClassName('filterClass')[0].style.top="-2300%";
-    }
-  }
-  function myFunction2(x) {
-    if (x.matches) {
-      document.getElementById('search').style.top="-2450%";
-      document.getElementsByClassName('searchClass')[0].style.top="-2450%";
-      document.getElementsByClassName('slct')[0].style.top="-1930%";
-      document.getElementsByClassName('filterClass')[0].style.top="-1930%";
-    }
-  }
+
 //---------------------------------------------------ADD EMPLOYEE BUTTON---------------------------------------------------------------------
 function added()
 {
+
    if(validateForm()) {
     console.log("form validated");
     var profile=window.pat;
@@ -164,7 +135,7 @@ function added()
     var deptval=document.getElementById("input_department").value;
     var number=document.getElementById("input_number").value;
     var skype=document.getElementById("input_skype").value;
-    var loc=document.querySelector( 'input[name="location"]:checked').value;
+    var loc=document.getElementById("input_office").value;
     myArray.push({
             "id":myArray.length+100,
             "image": window.imageUrl,
@@ -179,6 +150,8 @@ function added()
              "SkypeId":skype,
              "Office":loc
    });
+   console.log(myArray);
+   localStorage.setItem("myArray",JSON.stringify(myArray));
 refreshPage();
 clear_form_data();
    $('#EmplyeeModal').modal('hide');
@@ -198,34 +171,37 @@ function clear_form_data()
     document.getElementById('input_department').value="";
     document.getElementById('input_number').value="";
     document.getElementById('input_skype').value="";
-    document.getElementById('input_fname').style.border="1px solid black";
-    document.getElementById('input_lname').style.border="1px solid black";
-    document.getElementById('input_pname').style.border="1px solid black";
-    document.getElementById('input_email').style.border="1px solid black";
-    document.getElementById('input_job_title').style.border="1px solid black";
-    document.getElementById('input_department').style.border="1px solid black";
-    document.getElementById('input_number').style.border="1px solid black";
-    document.getElementById('input_skype').style.border="1px solid black";
+    document.getElementById('input_office').value="";
+    document.getElementById('input_fname').style.border="1px solid grey";
+    document.getElementById('input_lname').style.border="1px solid grey";
+    document.getElementById('input_pname').style.border="1px solid grey";
+    document.getElementById('input_email').style.border="1px solid grey";
+    document.getElementById('input_job_title').style.border="1px solid grey";
+    document.getElementById('input_department').style.border="1px solid grey";
+    document.getElementById('input_number').style.border="1px solid grey";
+    document.getElementById('input_skype').style.border="1px solid grey";
+    document.getElementById('input_office').style.border="1px solid grey";
     document.getElementById('mailerror').innerHTML="";
     document.getElementById('pnerror').innerHTML="";
     document.getElementById('phnerror').innerHTML="";
     document.getElementById('skyperror').innerHTML="";
     document.getElementById('File1').value="";
-    document.querySelector( 'input[name="location"]:checked').value=false;
+
 }
-var newCount=0;
+
 //-----------------------------------------FORM VALIDATION------------------------------------------------------------------
 function validateForm()
 {
+
     var fname=document.getElementById("input_fname").value.trim();
     var lname=document.getElementById("input_lname").value.trim();
     var Pname=document.getElementById("input_pname").value.trim();
     var mail=document.getElementById("input_email").value.trim();
     var jtitle=document.getElementById('input_job_title').value.trim();
     var dep=document.getElementById('input_department').value.trim();
-    window.data=dep;
     var tel=document.getElementById('input_number').value.trim();
     var sky=document.getElementById('input_skype').value.trim();
+    var ofc=document.getElementById('input_office').value;
     var regx=/([a-zA-Z0-9\.-]+)@([a-z]+).([a-z]{2,10})/;
     var namepat=/^([a-zA-Z]+)$/;
     var numregx=/^[6-9][0-9]{9}$/;
@@ -246,6 +222,7 @@ function validateForm()
                 document.getElementById('input_pname').style.border="3px solid red";
                 document.getElementById('pnerror').innerHTML="full name=first name+ last name";
                   }
+
         }
         else{
             document.getElementById('input_lname').style.border="3px solid green";
@@ -259,20 +236,21 @@ function validateForm()
                     if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD'||dep=='Accounting')
                     {
                         document.getElementById('input_department').style.border="3px solid green";
-                        if(dep=='Accounting')
-                        {
-                            contains(departmentArray, dep);
-                            return true;
-                        }
                        if(numregx.test(tel))
                        {
                           document.getElementById('input_number').style.border="3px solid green";
                           if(regx.test(sky))
                           {
                             document.getElementById('input_skype').style.border="3px solid green";
-                            return true;
+
+                            if(ofc=="India"||ofc=="Seattle"||ofc=="US"||ofc=="Germany")
+                            {
+                                document.getElementById('input_office').style.border="3px solid green";
+                                return true;
+                            }
                           }
                           else{
+
                         document.getElementById('input_skype').style.border="3px solid red";
                         document.getElementById('skyperror').innerHTML="Enter valid skype ";
                         return false;
@@ -283,22 +261,27 @@ function validateForm()
                         document.getElementById('phnerror').innerHTML="Enter valid phone number";
                         return false;
                        }
+
                     }
                     else{
                         document.getElementById('input_department').style.border="3px solid red";
                         return false;
                     }
+
                 }
                 else{
+
                     document.getElementById('input_job_title').style.border="3px solid red";
                     return false;
                 }
+
             }
             else{
                 document.getElementById('input_email').style.border="3px solid red";
                 document.getElementById('mailerror').innerHTML="Please fill valid email ";
                 return false;
             }
+
         }
     }
 
@@ -306,92 +289,14 @@ function validateForm()
 
 // -----------------------------------DISPLAYING DATA INTO HTML PAGE--------------------------------------------------------------
 refreshPage();
+leftFilter();
+allFilters();
 function alpEmp(){
     employees();
 }
 function clearEmp(){
     employees();
 }
-//-------------------------------------------FILTERS----------------------------------------------------------------------------------
-function dept(Dept){
-    var result="";
-    for(let i=0;i<myArray.length;i++){
-      if(myArray[i].department==Dept)
-      {
-        result=result.concat(`
-        <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic">
-        <div class="card_content">
-        <h3 class="prefname">${myArray[i].PreferredName}</h3>
-        <p class="jobtitle">${myArray[i].jobTitle}</p>
-        <p class="dept">${myArray[i].department}</p>
-        <div class="links">
-        <i class="bi bi-telephone-fill pe-2 icons"></i>
-    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
-    <i class="bi bi-chat-fill pe-2 icons"></i>
-    <i class="bi bi-star-fill pe-2 icons"></i>
-    <i class="bi bi-heart-fill icons"></i>
-    </div>
-    </div>
-        </div>
-        `);
-      }
-    }
-    document.getElementsByClassName("results_box")[0].innerHTML=result;
-}
-function offices(place){
-    var result="";
-    for(let i=0;i<myArray.length;i++){
-      if(myArray[i].Office==place)
-      {
-
-        result=result.concat(`
-        <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic">
-        <div class="card_content">
-        <h3 class="prefname">${myArray[i].PreferredName}</h3>
-        <p class="jobtitle">${myArray[i].jobTitle}</p>
-        <p class="dept">${myArray[i].department}</p>
-        <div class="links">
-        <i class="bi bi-telephone-fill pe-2 icons"></i>
-        <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
-        <i class="bi bi-chat-fill pe-2 icons"></i>
-        <i class="bi bi-star-fill pe-2 icons"></i>
-        <i class="bi bi-heart-fill icons"></i>
-    </div>
-    </div>
-        </div>
-        `);
-     document.getElementsByClassName("results_box")[0].innerHTML=result;
-      }
-    }
-}
-function jobTitle(job){
-    var result="";
-    for(let i=0;i<myArray.length;i++){
-        if(myArray[i].jobTitle==job)
-      {
-        result=result.concat(`
-        <div class="emp">
-        <img src="${myArray[i].image}" alt="img" class="profilepic">
-        <div class="card_content">
-        <h3 class="prefname">${myArray[i].PreferredName}</h3>
-        <p class="jobtitle">${myArray[i].jobTitle}</p>
-        <p class="dept">${myArray[i].department}</p>
-        <div class="links">
-        <i class="bi bi-telephone-fill pe-2 icons"></i>
-    <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
-    <i class="bi bi-chat-fill pe-2 icons"></i>
-    <i class="bi bi-star-fill pe-2 icons"></i>
-    <i class="bi bi-heart-fill icons"></i>
-    </div>
-    </div>
-        </div>
-        `);
-    }
-}
-  document.getElementsByClassName("results_box")[0].innerHTML=result;
-   }
 // ----------------------------------------FUNCTION FOR ALPHABETICAL SEARCH--------------------------------------------------
 function alphabet(letter)
 {
@@ -420,6 +325,7 @@ function alphabet(letter)
         </div>
             </div>
             `);
+
          }
       }
       else if(((document.getElementById("slct_option").value)=="LastName"))
@@ -443,6 +349,7 @@ function alphabet(letter)
        </div>
            </div>
            `);
+
         }
       }
       else{
@@ -465,6 +372,7 @@ function alphabet(letter)
        </div>
            </div>
            `);
+
         }
       }
 
@@ -526,6 +434,7 @@ search.addEventListener('keyup',(e)=>{
     </div>
         </div>
         `);
+
     }
         }
        else if(((document.getElementById("slct_option").value)=="LastName"))
@@ -533,7 +442,7 @@ search.addEventListener('keyup',(e)=>{
             var name=myArray[i].lastName.toLowerCase();
             var resname=res.toLowerCase();
             if((name.includes(resname)))
-             {
+      {
         result=result.concat(`
         <div class="emp">
         <img src="${myArray[i].image}" alt="img" class="profilepic">
@@ -576,9 +485,11 @@ search.addEventListener('keyup',(e)=>{
           </div>
               </div>
               `);
+
           }
         }
 }
+
   document.getElementsByClassName("results_box")[0].innerHTML=result;
 }
 )
@@ -594,7 +505,7 @@ data=data.concat(`
 <div class="card_contents" id="data">
 <br>
 <h2 id="Prename" > ${myArray[i].PreferredName}</h2>
-<hr style="height:2px;color:black;">
+<hr style="height:2px;color:black;width:300px;">
 <table>
 <tr><h5 class="title" > <td>Job Title </td> <td>:&emsp;</td><td> <span > ${myArray[i].jobTitle}</span></td> </h5></tr>
 <tr> <h5 class="dept"><td> Department </td><td>:&emsp; </td> <td> <span> ${myArray[i].department}</span></td> </h5></tr>
@@ -613,11 +524,13 @@ refreshPage();
 }
 function popup(j)
 {
+
     console.log(j);
     empCard(j%100);
    refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
+
     })
 }
 function edit(j){
@@ -644,6 +557,7 @@ function edit(j){
     </table>
      <br>
      <button class="btn btn-success" id="update" onclick="uempCard(${myArray[i].id}%100)" disabled>UPDATE</button>
+
     </div>
     </div>`);
     document.getElementById('bg-modal').innerHTML=info;
@@ -651,16 +565,20 @@ function edit(j){
     refreshPage();
     document.getElementById('close').addEventListener('click',function(){
         document.getElementById('bg-modal').style.display='none';
+
     })
 }
 function updateEnable()
 {
+
     document.getElementById('update').disabled=false;
+
 }
 function uempCard(k)
 {
 var data="";
 var i=k;
+// myArray[i].image=window.imageUrlnew;
 myArray[i].PreferredName=document.getElementById('uPre').value;
 myArray[i].jobTitle=document.getElementById('ujobtitle').value;
 myArray[i].department=document.getElementById('udep').value;
@@ -692,129 +610,16 @@ document.getElementById('bg-modal').style.display='flex';
 refreshPage();
 document.getElementById('close').addEventListener('click',function(){
     document.getElementById('bg-modal').style.display='none';
+
 })
 }
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
 function refreshPage()
 {
-   filterDept();
-   filterOffices();
-   filterJobTitles();
+leftFilter();
+allFilters();
    employees();
    localStorage.setItem("myArray",JSON.stringify(myArray));
-}
-function filterOffices(){
-    var officeArray=[0,0];
-myArray.forEach(el=>
-    {
-        if(el.Office=="Seattle")
-        {
-            officeArray[0]++;
-            document.getElementById("seattle").innerHTML="Seattle"+"("+officeArray[0]+")";
-        }
-        else if(el.Office=="India")
-        {
-            officeArray[1]++;
-            document.getElementById("india").innerHTML="India"+"("+officeArray[1]+")";
-        }
-    }
-    );
-}
-function filterDept(){
-    var depArray=[0,0,0,0];
-myArray.forEach(el=>
-    {
-        if(el.department=="IT Department")
-        {
-            depArray[0]++;
-            document.getElementById("it").innerHTML="IT"+"("+depArray[0]+")";
-        }
-        else if(el.department=="Human resource")
-        {
-            depArray[1]++;
-            document.getElementById("humanRes").innerHTML= "Human resource"+"("+ depArray[1]+ ")";
-        }
-        else if(el.department=="MD")
-        {
-            depArray[2]++;
-            document.getElementById("md").innerHTML="MD"+"("+depArray[2]+")";
-        }
-        else if(el.department=="UX department")
-        {
-            depArray[3]++;
-            document.getElementById("uxdept").innerHTML="UX department"+"("+depArray[3]+")";
-        }
-    }
-    );
-}
-function filterJobTitles()
-{
-    var jobTitleArray=[0,0,0,0,0,0,0,0,0];
-    myArray.forEach(el=>{
-       if(el.jobTitle=="SharePoint practice head")
-       {
-        jobTitleArray[0]++;
-        document.getElementById("sharepoint").innerHTML="SharePoint practice head"+"("+  jobTitleArray[0]+ ")";
-       }
-       else if(el.jobTitle==".Net developement")
-       {
-        jobTitleArray[1]++;
-        document.getElementById("dotnet").innerHTML=".Net developement"+ "("+jobTitleArray[1]+")";
-       }
-       else if(el.jobTitle=="Recruiting Expert")
-       {
-        jobTitleArray[2]++;
-        document.getElementById("recruit").innerHTML= "Recruiting Expert"+"("+ jobTitleArray[2]+ ")";
-       }
-       else if(el.jobTitle=="HR manager")
-       {
-        jobTitleArray[3]++;
-        document.getElementById("hrM").innerHTML= "HR manager"+"("+ jobTitleArray[3]+ ")";
-       }
-       else if(el.jobTitle=="BI Developer")
-       {
-        jobTitleArray[4]++;
-        document.getElementById("bi").innerHTML= "BI Developer"+"("+ jobTitleArray[4]+ ")";
-       }
-       else if(el.jobTitle=="Business Analyst")
-       {
-        jobTitleArray[5]++;
-        document.getElementById("business").innerHTML= "Business Analyst"+"("+ jobTitleArray[5]+ ")";
-       }
-       else if(el.jobTitle=="Software Developer")
-       {
-        jobTitleArray[6]++;
-        document.getElementById("software").innerHTML= "Software Developer"+"("+  jobTitleArray[6] + ")";
-       }
-       else if(el.jobTitle=="Executive Assistant")
-       {
-        jobTitleArray[7]++;
-        document.getElementById("executive").innerHTML= "Executive Assistant"+"("+ jobTitleArray[7] + ")";
-       }
-       else if(el.jobTitle=="Quality engineer")
-       {
-        jobTitleArray[8]++;
-        document.getElementById("quality").innerHTML= "Quality engineer"+"("+ jobTitleArray[8] + ")";
-       }
-    });
-}
-function contains(departmentArray,dep) {
-   var Newcount=0;
-    for (var i = 0; i < departmentArray.length; i++) {
-        if (departmentArray[i]!=dep) {
-            Newcount++;
-            departmentArray.push(dep);
-            console.log(departmentArray);
-            let ul = document.getElementsByTagName('ul')[0];
-          let li = document.createElement('li');
-          var result=`<a href="#" id="newdep"class="text-decoration-none link-dark size" class="filter_dept" onclick="dept('Accounting')"></a>`;
-           li.innerHTML =result;
-           ul.appendChild(li);
-             document.getElementById('newdep').innerHTML=dep+"("+Newcount+")";
-           localStorage.setItem("myArray",JSON.stringify(myArray));
-            break;
-        }
-    }
 }
 function SORT()
 {
@@ -827,6 +632,7 @@ function SORT()
 }
 function revSORT()
 {
+
     myArray.sort(function(a,b){
         if(a.firstName.toLowerCase()<b.firstName.toLowerCase())  return 1;
         if(a.firstName.toLowerCase()>b.firstName.toLowerCase())  return -1;
@@ -845,28 +651,199 @@ var imageUrl;
         };
         window.reader.readAsDataURL(file);
     });
-function showFilters()
+
+function leftFilter()
 {
-    document.getElementsByClassName('ul')[0].style.display="grid";
-    document.getElementsByClassName('ul')[1].style.display="grid";
-    document.getElementsByClassName('ul')[2].style.display="grid";
-    document.getElementsByClassName('ul')[3].style.display="grid";
-    document.getElementById('search').style.top="-2450%";
-    document.getElementById('showFilter').style.visibility="hidden";
-    document.getElementsByClassName('searchClass')[0].style.top="-2450%";
-    document.getElementsByClassName('slct')[0].style.top="-1920%";
-    document.getElementsByClassName('filterClass')[0].style.top="-1920%";
+    departmentMap=new Map();
+    jobTitleMap=new Map();
+    officeMap=new Map();
+    departmentArr=[];
+    officeArr=[];
+    jobTitleArr=[];
+    depCount=[];
+    officeCount=[];
+    jobTitleCount=[];
+    for(var i=0;i<myArray.length;i++)
+    {
+        if(departmentMap.has(myArray[i].department)){
+            departmentMap.set(myArray[i].department,departmentMap.get(myArray[i].department)+1);
+        }
+        else{
+            departmentArr.push(myArray[i].department);
+            departmentMap.set(myArray[i].department,1)
+        }
+        if(jobTitleMap.has(myArray[i].jobTitle)){
+            jobTitleMap.set(myArray[i].jobTitle,jobTitleMap.get(myArray[i].jobTitle)+1)
+        }
+        else{
+            jobTitleArr.push(myArray[i].jobTitle);
+            jobTitleMap.set(myArray[i].jobTitle,1);
+        }
+        if(officeMap.has(myArray[i].Office)){
+           officeMap.set(myArray[i].Office,officeMap.get(myArray[i].Office)+1);
+        }
+        else{
+            officeArr.push(myArray[i].Office);
+            officeMap.set(myArray[i].Office,1);
+        }
+
+    }
+
+    for(var i=0;i<departmentArr.length;i++)
+    {
+        depCount[i]=departmentMap.get(departmentArr[i]);
+    }
+    for(var i=0;i<officeArr.length;i++)
+    {
+       officeCount[i]=officeMap.get(officeArr[i]);
+    }
+    for(var i=0;i<jobTitleArr.length;i++)
+    {
+        jobTitleCount[i]=jobTitleMap.get(jobTitleArr[i]);
+    }
 }
-function hideFilters()
+function allFilters()
 {
-    document.getElementById('showFilter').style.visibility="visible";
-    document.getElementsByClassName('ul')[0].style.display="none";
-    document.getElementsByClassName('listhidden')[0].style.display="none";
-    document.getElementsByClassName('ul')[1].style.display="none";
-    document.getElementsByClassName('ul')[2].style.display="none";
-    document.getElementsByClassName('ul')[3].style.display="none";
-    document.getElementById('search').style.top="-550px";
-    document.getElementsByClassName('searchClass')[0].style.top="-550px";
-    document.getElementsByClassName('slct')[0].style.top="-550px";
-    document.getElementsByClassName('filterClass')[0].style.top="-550px";
+oneFilter(depCount,departmentArr,'depId');
+oneFilter(officeCount,officeArr,'officeId');
+oneFilter(jobTitleCount,jobTitleArr,'jobtitleId')
+}
+var list1;
+var list2;
+function oneFilter(filcount,filArr,filid)
+{
+ list1="";
+list2="";
+if(filArr.length<5){
+    for(var j=0;j<filArr.length;j++)
+       {
+         list1=list1.concat(`<li><a href="#" class="text-decoration-none link-dark size" onclick="filterClick('${filArr[j]}')">${filArr[j]}(${filcount[j]})</a></li>`);
+       }
+     document.getElementById(filid).innerHTML=list1;
+}
+else{
+    var reading=0;
+    for(var j=0;j<filArr.length;j++)
+{
+    reading++;
+    if(reading<=5){
+        list1=list1.concat(`<li><a href="#" class="text-decoration-none link-dark size" onclick="filterClick('${filArr[j]}')">${filArr[j]}(${filcount[j]})</a></li>`);
+    }
+    else{
+list1=list1.concat(`<a href="#" onclick="viewmore()" class="text-decoration-none" id="more">view more</a>`);
+for(j=5;j<filArr.length;j++)
+{
+    list2=list2.concat(`<li><a href="#" class="text-decoration-none link-dark size" onclick="filterClick('${filArr[j]}')">${filArr[j]}(${filcount[j]})</a></li>`);
+
+}
+break;
+    }
+
+}
+document.getElementById(filid).innerHTML=list1;
+}
+}
+function viewmore()
+{
+    console.log(window.list2);
+    document.getElementById('more').innerHTML=window.list2;
+    var x = window.matchMedia("(max-width: 580px)");
+    myfun(x);
+    window.list2="";
+
+}
+function myfun(x){
+    if(x.matches){
+            document.getElementById('search').style.top="-1890px";
+    document.getElementsByClassName('searchClass')[0].style.top="-1890px";
+    document.getElementsByClassName('slct')[0].style.top="-1890px";
+    document.getElementsByClassName('filterClass')[0].style.top="-1890px";
+    }
+}
+function filterClick(value)
+{
+
+    if(departmentArr.includes(value))
+    {
+        var result="";
+        for(let i=0;i<myArray.length;i++){
+          if(myArray[i].department==value)
+          {
+            result=result.concat(`
+            <div class="emp">
+            <img src="${myArray[i].image}" alt="img" class="profilepic">
+            <div class="card_content">
+            <h3 class="prefname">${myArray[i].PreferredName}</h3>
+            <p class="jobtitle">${myArray[i].jobTitle}</p>
+            <p class="dept">${myArray[i].department}</p>
+            <div class="links">
+            <i class="bi bi-telephone-fill pe-2 icons"></i>
+        <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+        <i class="bi bi-chat-fill pe-2 icons"></i>
+        <i class="bi bi-star-fill pe-2 icons"></i>
+        <i class="bi bi-heart-fill icons"></i>
+        </div>
+        </div>
+            </div>
+            `);
+          }
+        }
+        document.getElementsByClassName("results_box")[0].innerHTML=result;
+    }
+    else if(officeArr.includes(value))
+    {
+        var result="";
+        for(let i=0;i<myArray.length;i++){
+          if(myArray[i].Office==value)
+          {
+
+            result=result.concat(`
+            <div class="emp">
+            <img src="${myArray[i].image}" alt="img" class="profilepic">
+            <div class="card_content">
+            <h3 class="prefname">${myArray[i].PreferredName}</h3>
+            <p class="jobtitle">${myArray[i].jobTitle}</p>
+            <p class="dept">${myArray[i].department}</p>
+            <div class="links">
+            <i class="bi bi-telephone-fill pe-2 icons"></i>
+            <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+            <i class="bi bi-chat-fill pe-2 icons"></i>
+            <i class="bi bi-star-fill pe-2 icons"></i>
+            <i class="bi bi-heart-fill icons"></i>
+        </div>
+        </div>
+            </div>
+            `);
+         document.getElementsByClassName("results_box")[0].innerHTML=result;
+          }
+        }
+    }
+    else if(jobTitleArr.includes(value))
+    {
+        var result="";
+        for(let i=0;i<myArray.length;i++){
+          if(myArray[i].jobTitle==value)
+          {
+
+            result=result.concat(`
+            <div class="emp">
+            <img src="${myArray[i].image}" alt="img" class="profilepic">
+            <div class="card_content">
+            <h3 class="prefname">${myArray[i].PreferredName}</h3>
+            <p class="jobtitle">${myArray[i].jobTitle}</p>
+            <p class="dept">${myArray[i].department}</p>
+            <div class="links">
+            <i class="bi bi-telephone-fill pe-2 icons"></i>
+            <i class="bi bi-chat-left-dots-fill pe-2 icons"> </i>
+            <i class="bi bi-chat-fill pe-2 icons"></i>
+            <i class="bi bi-star-fill pe-2 icons"></i>
+            <i class="bi bi-heart-fill icons"></i>
+        </div>
+        </div>
+            </div>
+            `);
+         document.getElementsByClassName("results_box")[0].innerHTML=result;
+          }
+        }
+    }
 }

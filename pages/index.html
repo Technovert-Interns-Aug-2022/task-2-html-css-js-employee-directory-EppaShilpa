@@ -35,45 +35,25 @@
         <div class="container-fluid part2">
             <div class="row body">
                 <div class="col-lg-2 filter">
-                    <button type="button" class="btn btn-light viewFilter" id="showFilter" onclick="showFilters()"><i class="bi bi-filter"></i></button>
-                    <ul class="ul">
-                     <li><h4>Departments</h4></li>
-                     <li> <a href="#"  class="text-decoration-none link-dark size" class="filter_dept" id="it" onclick="dept('IT Department')" >IT(0)</a></li>
-                     <li> <a href="#"  class="text-decoration-none link-dark size" class="filter_dept " id="humanRes"onclick="dept('Human resource')">Human resource(0)</a> </li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="md" onclick="dept('MD')">MD(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_dept" id="uxdept" onclick="dept('UX department')">UX department(0)</a></li>
+                     <h4 class="filterheading ul">Departments</h4>
+                     <ul class="ul" id="depId">
+
                     </ul>
                     <br>
-                    <ul class="ul">
-                     <li><h4>Offices </h4></li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_offc" id="seattle" onclick="offices('Seattle')" >Seattle(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_offc" id="india" onclick="offices('India')" >India(0)</a></li>
+                    <h4 class="filterheading ul">Offices </h4>
+                    <ul class="ul" id="officeId">
+
                     </ul>
                     <br>
-                    <ul class="ul">
-                     <li><h4>Job Titles</h4></li>
-                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="sharepoint" onclick="jobTitle('SharePoint practice head')">SharePoint Practice head(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="dotnet" onclick="jobTitle('.Net developement')">.Net development LeadIT(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="recruit" onclick="jobTitle('Recruiting Expert')">Recruiting Expert(0)</a></li>
-                     <li><a href="#" class="text-decoration-none link-dark size" class="filter_jobtit" id="bi" onclick="jobTitle('BI Developer')">BI Developer(0)</a></li>
-                     <li><a href="#"class="text-decoration-none link-dark size"  class="filter_jobtit" id="business" onclick="jobTitle('Business Analyst')">Business Analyst(0)</a></li>
-                     <li onclick="visible()" ><a href="#" id="viewmore" style="text-decoration: none;">View more</a></li>
-                     </ul>
-                     <ul class="listhidden">
-                         <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="software" onclick="jobTitle('Software Developer')">Software Developer(0)</a></li>
-                         <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="executive" onclick="jobTitle('Executive Assistant')">Executive Assistant(0)</a></li>
-                         <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="hrM" onclick="jobTitle('HR manager')">HR manager(0)</a></li>
-                         <li><a href="#" class="text-decoration-none link-dark size"  class="filter_jobtit" id="quality" onclick="jobTitle('Quality engineer')">Quality engineer(0)</a></li>
-                         <li onclick="hide()"><a href="#" >View less</a></li>
+                    <h4 class="filterheading ul">Job Title</h4>
+                    <ul class="ul" id="jobtitleId">
+
                     </ul>
-                    <button type="button" class="btn btn-light hideFilter ul" id="hideFilter" onclick="hideFilters()"><i class="bi bi-arrow-left-circle"></i></button>
                  </div>
                  <div class="col-lg-10 search">
                     <div class="row row1">
                         <div class="row rowalp">
-                            <button type="button" class="btn  alp" onclick="alpEmp()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person person" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                              </svg></button>
+                            <button type="button" class="btn  alp" onclick="alpEmp()"><i class="bi bi-person-check"></i></button>
                             <button type="button" class="btn  alp" onclick="alphabet('A')"> A</button>
                             <button type="button"  class="btn  alp" onclick="alphabet('B')"> B</button>
                             <button type="button"  class="btn  alp" onclick="alphabet('C')"> C</button>
@@ -159,7 +139,7 @@
                                                     <label class="form-label"><b>Job Title</b></label>
                                                     <select class="form-select input" id="input_job_title" name="tit" required>
                                                         <option selected>Select any option</option>
-                                                        <option value="SharePoint practice head">SharePoint practice headIT Department</option>
+                                                        <option value="SharePoint practice head">SharePoint practice head</option>
                                                         <option value="Operations manager">Operations manager</option>
                                                         <option value="Product manager">Product manager</option>
                                                         <option value=".Net developement">.Net developement</option>
@@ -195,11 +175,14 @@
                                                 </div>
                                                 <div>
                                                     <label class="form-label"><b>Office Location: &nbsp;</b></label>
-                                                    <input type="radio" id="india"  class="radio" name="location" value="India" required>
-                                                    <label >India</label>
-                                                    <input type="radio" id="Seattle" class="radio" name="location" value="Seattle" required>
-                                                    <label >Seattle</label>
+                                                    <select class="form-select input" id="input_office" name="location" required>
+                                                        <option selected>Select any option</option>
+                                                        <option value="India">India</option>
+                                                        <option value="Seattle">Seattle</option>
+                                                        <option value="US">US</option>
+                                                        <option value="Germany">Germany</option>
 
+                                                    </select>
                                                     <small id="offcerror"></small>
                                                 </div>
                                                 <div>
@@ -220,6 +203,7 @@
                     </div>
                     <div class="results_box">
 
+
                     </div>
              </div>
             </div>
@@ -229,5 +213,6 @@
         </div>
     </div>
     <script type="text/javascript" src="../scripts/script.js"></script>
+
 </body>
 </html>
