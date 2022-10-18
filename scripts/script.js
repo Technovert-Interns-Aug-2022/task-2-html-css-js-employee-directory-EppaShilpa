@@ -614,20 +614,6 @@ document.getElementById('close').addEventListener('click',function(){
 
 })
 }
-
-// const fileInput2 = document.getElementById('newImage');
-// var imageUrl1;
-// document.getElementById('newImage').addEventListener('change', (e) => {
-//         console.log("hii ");
-//        var img = e.target.files[0];
-//         window.reader = new FileReader();
-//         window.reader.onloadend = () => {
-//              imageUrl1=reader.result;
-//             console.log(reader.result);
-//         };
-//         window.reader.readAsDataURL(img);
-//     });
-
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
 function refreshPage()
 {
