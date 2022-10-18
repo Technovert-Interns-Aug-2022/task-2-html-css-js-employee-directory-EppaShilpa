@@ -233,7 +233,7 @@ function validateForm()
                 if(jtitle=='SharePoint practice head'||jtitle=='Operations manager'||jtitle=='Product manager'||jtitle=='.Net developement'||jtitle=='Network Engineer'||jtitle=='Business Analyst'||jtitle=='Software Engineer'||jtitle=='Software Developer')
                 {
                     document.getElementById('input_job_title').style.border="3px solid green";
-                    if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD'||dep=='Accounting')
+                    if(dep=='IT Department'||dep=='Human resource'||dep=='UX department'||dep=='MD'||dep=='Accounting'||dep=='Sales')
                     {
                         document.getElementById('input_department').style.border="3px solid green";
                        if(numregx.test(tel))
@@ -540,9 +540,11 @@ function edit(j){
     info=info.concat(`
     <div class="modal-contents" >
     <div id="close">+</div>
-    <form action="" >
-    <img src="${myArray[i].image}" alt="img" class="profilepic newprofile" id="pp" id="coverPreview" alt="">
-    <input type="file" id="cover" />
+    <form action="">
+    <div>
+    <img src="${myArray[i].image}" alt="img" class="profilepic" id="pp">
+
+    </div>
   </form>
     <div class="card_contents" id="data">
     <br>
@@ -578,7 +580,6 @@ function uempCard(k)
 {
 var data="";
 var i=k;
-// myArray[i].image=window.imageUrlnew;
 myArray[i].PreferredName=document.getElementById('uPre').value;
 myArray[i].jobTitle=document.getElementById('ujobtitle').value;
 myArray[i].department=document.getElementById('udep').value;
@@ -613,6 +614,20 @@ document.getElementById('close').addEventListener('click',function(){
 
 })
 }
+
+// const fileInput2 = document.getElementById('newImage');
+// var imageUrl1;
+// document.getElementById('newImage').addEventListener('change', (e) => {
+//         console.log("hii ");
+//        var img = e.target.files[0];
+//         window.reader = new FileReader();
+//         window.reader.onloadend = () => {
+//              imageUrl1=reader.result;
+//             console.log(reader.result);
+//         };
+//         window.reader.readAsDataURL(img);
+//     });
+
 //----------------------------------------------------REFRESH PAGE------------------------------------------------------------------------
 function refreshPage()
 {
@@ -749,7 +764,7 @@ function viewmore()
     document.getElementById('more').innerHTML=window.list2;
     var x = window.matchMedia("(max-width: 580px)");
     myfun(x);
-    window.list2="";
+
 
 }
 function myfun(x){

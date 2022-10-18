@@ -227,6 +227,12 @@ margin-left: 190px;
 width: 100px;
 height: 100px;
 }
+#coverPreview{
+   float: left;
+margin-left: 190px;
+width: 100px;
+height: 100px;
+}
 #cover{
    display:none;
  }
@@ -381,7 +387,7 @@ border: none;
     label{
        font-size: 50px;
     }
-  
+
     .searchClass{
       position: relative;
       top:-1750px;
@@ -499,7 +505,7 @@ border: none;
   }
   .modal-contents{
      width: 80%;
-     height: 1000px;
+     height: 1100px;
      background-color: white;
      border-radius: 5px;
      padding: 20px;
